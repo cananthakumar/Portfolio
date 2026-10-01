@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Ananthakumar C — IT Infrastructure Portfolio</title>
 
 <style>
@@ -17,7 +16,7 @@
   --line: light-dark(#dfe5ee,#263143);
   --accent:#6d5dfc;
   --accent2:#19c7a2;
-  --shadow:0 18px 60px rgba(20,30,50,.12);
+  --shadow:0 18px 60px rgba(20,30,50,.10);
 }
 
 *{
@@ -25,18 +24,22 @@
   scroll-behavior:smooth;
 }
 
+html,body{
+  overflow-x:hidden;
+  max-width:100%;
+}
+
 body{
   margin:0;
   background:var(--bg);
   color:var(--text);
-  font-family:Inter,ui-sans-serif,system-ui,-apple-system,
-  BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   line-height:1.6;
 }
 
 .app{
   min-height:100vh;
-  background:var(--bg);
+  background-color:var(--bg);
 }
 
 a{
@@ -48,8 +51,6 @@ a{
   width:min(1120px,92%);
   margin:auto;
 }
-
-/* NAVIGATION */
 
 .nav{
   position:sticky;
@@ -84,15 +85,9 @@ a{
   font-size:14px;
 }
 
-.navlinks a{
-  transition:.2s;
-}
-
 .navlinks a:hover{
   color:var(--text);
 }
-
-/* HERO */
 
 .hero{
   padding:105px 0 80px;
@@ -100,35 +95,6 @@ a{
   grid-template-columns:1.3fr .7fr;
   gap:60px;
   align-items:center;
-  position:relative;
-  isolation:isolate;
-}
-
-.hero:after{
-  content:"";
-  position:absolute;
-  width:420px;
-  height:420px;
-  right:-150px;
-  top:-120px;
-  background:conic-gradient(
-    from 90deg,
-    var(--accent),
-    #19a9ff,
-    var(--accent2),
-    var(--accent)
-  );
-  filter:blur(70px);
-  opacity:.14;
-  animation:heroGlow 9s linear infinite;
-  pointer-events:none;
-  z-index:-1;
-}
-
-@keyframes heroGlow{
-  to{
-    transform:rotate(360deg);
-  }
 }
 
 .eyebrow{
@@ -148,16 +114,14 @@ a{
   height:8px;
   border-radius:50%;
   background:var(--accent2);
-  box-shadow:
-  0 0 0 5px
-  color-mix(in srgb,var(--accent2) 14%,transparent);
+  box-shadow:0 0 0 5px color-mix(in srgb,var(--accent2) 14%,transparent);
 }
 
 h1{
   font-size:clamp(46px,7vw,82px);
   line-height:.98;
   letter-spacing:-.065em;
-  margin:22px 0;
+  margin:22px 0 22px;
 }
 
 .gradient{
@@ -171,11 +135,6 @@ h1{
   font-size:18px;
   color:var(--muted);
   max-width:650px;
-}
-
-.availability{
-  color:var(--accent2);
-  font-weight:800;
 }
 
 .actions{
@@ -194,12 +153,6 @@ h1{
   border:1px solid var(--line);
   font-weight:750;
   font-size:14px;
-  transition:.2s;
-}
-
-.btn:hover{
-  transform:translateY(-2px);
-  border-color:var(--accent);
 }
 
 .btn.primary{
@@ -208,34 +161,9 @@ h1{
   border-color:var(--text);
 }
 
-/* TERMINAL */
-
-.terminal{
-  margin-top:25px;
-  background:#080b12;
-  color:#b8c5d9;
-  border-radius:18px;
-  border:1px solid #263143;
-  padding:18px;
-  font:12px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace;
-  box-shadow:
-    0 18px 60px rgba(0,0,0,.22),
-    0 0 35px rgba(109,93,252,.1);
+.btn:hover{
+  transform:translateY(-1px);
 }
-
-.terminal .green{
-  color:#19c7a2;
-}
-
-.terminal .purple{
-  color:#9d8cff;
-}
-
-.terminal .blue{
-  color:#5fc8ff;
-}
-
-/* HERO CARD */
 
 .hero-card{
   background:var(--surface);
@@ -269,6 +197,7 @@ h1{
   background:var(--surface2);
   font-size:28px;
   font-weight:900;
+  letter-spacing:-.05em;
 }
 
 .stat{
@@ -292,18 +221,6 @@ h1{
   font-size:13px;
   text-align:right;
 }
-
-.code-line{
-  font:12px ui-monospace,SFMono-Regular,Menlo,monospace;
-  color:var(--muted);
-  margin-top:12px;
-}
-
-.code-line b{
-  color:var(--accent2);
-}
-
-/* SECTIONS */
 
 section{
   padding:82px 0;
@@ -338,7 +255,11 @@ section{
   margin:0;
 }
 
-/* CARDS */
+.about{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+}
 
 .card{
   background:var(--surface);
@@ -350,14 +271,6 @@ section{
 .card p{
   color:var(--muted);
   margin:0;
-}
-
-/* ABOUT */
-
-.about{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:24px;
 }
 
 .facts{
@@ -383,31 +296,6 @@ section{
   font-size:15px;
 }
 
-/* SKILLS */
-
-.skill-filter{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  margin-bottom:22px;
-}
-
-.filter{
-  cursor:pointer;
-  background:var(--surface);
-  border:1px solid var(--line);
-  color:var(--muted);
-  padding:8px 12px;
-  border-radius:999px;
-  font-weight:700;
-}
-
-.filter.active,
-.filter:hover{
-  background:var(--text);
-  color:var(--bg);
-}
-
 .skills{
   display:flex;
   flex-wrap:wrap;
@@ -421,15 +309,11 @@ section{
   border-radius:999px;
   font-size:13px;
   font-weight:700;
-  transition:.2s;
 }
 
 .pill:hover{
   border-color:var(--accent);
-  transform:translateY(-2px);
 }
-
-/* EXPERIENCE */
 
 .timeline{
   position:relative;
@@ -461,9 +345,7 @@ section{
   height:11px;
   border-radius:50%;
   background:var(--accent);
-  box-shadow:
-  0 0 0 5px
-  color-mix(in srgb,var(--accent) 13%,transparent);
+  box-shadow:0 0 0 5px color-mix(in srgb,var(--accent) 13%,transparent);
 }
 
 .role{
@@ -478,16 +360,16 @@ section{
   font-size:20px;
 }
 
-.company{
-  color:var(--accent);
-  font-weight:750;
-  font-size:14px;
-}
-
 .date{
   font-size:13px;
   color:var(--muted);
   white-space:nowrap;
+}
+
+.company{
+  color:var(--accent);
+  font-weight:750;
+  font-size:14px;
 }
 
 .item ul{
@@ -500,11 +382,9 @@ section{
   margin:7px 0;
 }
 
-/* PROJECTS */
-
 .projects{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(2,1fr);
   gap:18px;
 }
 
@@ -513,41 +393,9 @@ section{
   border:1px solid var(--line);
   border-radius:22px;
   padding:25px;
-  min-height:260px;
+  min-height:235px;
   display:flex;
   flex-direction:column;
-  position:relative;
-  overflow:hidden;
-  transition:
-    transform .25s ease,
-    box-shadow .25s ease;
-}
-
-.project:hover{
-  box-shadow:var(--shadow);
-}
-
-.project:before{
-  content:"";
-  position:absolute;
-  width:120px;
-  height:120px;
-  right:-55px;
-  top:-55px;
-  background:var(--accent);
-  border-radius:50%;
-  filter:blur(35px);
-  opacity:.09;
-}
-
-.project:after{
-  content:"↗";
-  position:absolute;
-  right:20px;
-  bottom:18px;
-  font-size:18px;
-  color:var(--accent);
-  opacity:.6;
 }
 
 .project-top{
@@ -587,8 +435,6 @@ section{
   color:var(--muted);
 }
 
-/* EDUCATION */
-
 .edu{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -603,8 +449,6 @@ section{
   margin:0;
   color:var(--muted);
 }
-
-/* CONTACT */
 
 .contact{
   background:var(--surface);
@@ -628,365 +472,17 @@ section{
   margin:0;
 }
 
-/* FOOTER */
-
 .footer{
   padding:30px 0 45px;
   color:var(--muted);
   font-size:13px;
   display:flex;
   justify-content:space-between;
+  gap:20px;
   border-top:1px solid var(--line);
 }
 
-/* BACKGROUND */
-
-.grid-bg{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  opacity:.32;
-  background-image:
-    linear-gradient(var(--line) 1px,transparent 1px),
-    linear-gradient(90deg,var(--line) 1px,transparent 1px);
-  background-size:70px 70px;
-  mask-image:linear-gradient(to bottom,black,transparent 75%);
-}
-
-.orb{
-  position:absolute;
-  border-radius:50%;
-  pointer-events:none;
-  filter:blur(1px);
-  opacity:.45;
-  animation:float 8s ease-in-out infinite;
-}
-
-.orb.one{
-  width:280px;
-  height:280px;
-  background:
-    radial-gradient(circle at 35% 35%,#7c6cff,transparent 65%);
-  right:8%;
-  top:120px;
-}
-
-.orb.two{
-  width:220px;
-  height:220px;
-  background:
-    radial-gradient(circle at 55% 45%,#19c7a2,transparent 65%);
-  left:4%;
-  top:580px;
-  animation-delay:-3s;
-}
-
-@keyframes float{
-  0%,100%{
-    transform:translate3d(0,0,0);
-  }
-  50%{
-    transform:translate3d(0,-28px,0);
-  }
-}
-
-/* SCAN LINE */
-
-.scanline{
-  position:absolute;
-  left:0;
-  right:0;
-  top:0;
-  height:2px;
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      var(--accent),
-      transparent
-    );
-  box-shadow:0 0 18px var(--accent);
-  animation:scan 5s linear infinite;
-  opacity:.5;
-}
-
-@keyframes scan{
-  0%{
-    transform:translateY(0);
-  }
-  100%{
-    transform:translateY(520px);
-  }
-}
-
-/* MARQUEE */
-
-.marquee{
-  overflow:hidden;
-  border-block:1px solid var(--line);
-  padding:13px 0;
-  color:var(--muted);
-  white-space:nowrap;
-}
-
-.marquee-track{
-  display:inline-flex;
-  gap:34px;
-  animation:marquee 24s linear infinite;
-  font-size:12px;
-  font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:.16em;
-}
-
-@keyframes marquee{
-  to{
-    transform:translateX(-50%);
-  }
-}
-
-/* METRICS */
-
-.metric-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
-  margin-top:25px;
-}
-
-.metric{
-  background:var(--surface);
-  border:1px solid var(--line);
-  border-radius:18px;
-  padding:20px;
-  transition:.2s;
-}
-
-.metric:hover{
-  transform:translateY(-4px);
-  box-shadow:var(--shadow);
-}
-
-.metric small{
-  color:var(--muted);
-  display:block;
-}
-
-.metric strong{
-  display:block;
-  font-size:30px;
-  letter-spacing:-.05em;
-  margin-top:5px;
-}
-
-/* REVEAL */
-
-.reveal{
-  opacity:0;
-  transform:translateY(24px);
-  transition:
-    opacity .7s ease,
-    transform .7s ease;
-}
-
-.reveal.show{
-  opacity:1;
-  transform:none;
-}
-
-/* CUSTOM CURSOR */
-
-.cursor{
-  position:fixed;
-  width:10px;
-  height:10px;
-  border-radius:50%;
-  pointer-events:none;
-  z-index:100;
-  transform:translate(-50%,-50%);
-  background:var(--accent);
-  box-shadow:0 0 18px var(--accent);
-  transition:
-    transform .12s ease,
-    opacity .2s;
-  display:none;
-}
-
-.cursor:after{
-  content:"";
-  position:absolute;
-  inset:-7px;
-  border:1px solid
-    color-mix(in srgb,var(--accent) 45%,transparent);
-  border-radius:50%;
-  animation:cursorPulse 1.4s ease-in-out infinite;
-}
-
-@keyframes cursorPulse{
-  0%,100%{
-    transform:scale(.8);
-    opacity:.35;
-  }
-  50%{
-    transform:scale(1.25);
-    opacity:.8;
-  }
-}
-
-/* BACK TO TOP */
-
-.backtop{
-  position:fixed;
-  right:24px;
-  bottom:24px;
-  width:44px;
-  height:44px;
-  border-radius:50%;
-  border:1px solid var(--line);
-  background:var(--surface);
-  color:var(--text);
-  display:grid;
-  place-items:center;
-  opacity:0;
-  pointer-events:none;
-  transition:.25s;
-  z-index:30;
-}
-
-.backtop.visible{
-  opacity:1;
-  pointer-events:auto;
-}
-
-/* CHATBOT */
-
-.chatbot{
-  position:fixed;
-  right:24px;
-  bottom:82px;
-  width:min(360px,calc(100vw - 32px));
-  background:var(--surface);
-  border:1px solid var(--line);
-  border-radius:22px;
-  box-shadow:0 24px 80px rgba(0,0,0,.28);
-  z-index:50;
-  overflow:hidden;
-  display:none;
-}
-
-.chatbot.open{
-  display:block;
-  animation:chatIn .22s ease;
-}
-
-@keyframes chatIn{
-  from{
-    opacity:0;
-    transform:translateY(12px) scale(.98);
-  }
-  to{
-    opacity:1;
-    transform:none;
-  }
-}
-
-.chat-head{
-  padding:15px 17px;
-  background:
-    linear-gradient(110deg,var(--accent),#19a9ff);
-  color:white;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.chat-head strong{
-  font-size:14px;
-}
-
-.chat-close{
-  border:0;
-  background:rgba(255,255,255,.16);
-  color:white;
-  width:30px;
-  height:30px;
-  border-radius:9px;
-  cursor:pointer;
-}
-
-.chat-body{
-  padding:14px;
-  max-height:310px;
-  overflow:auto;
-}
-
-.chat-msg{
-  padding:10px 12px;
-  border-radius:14px;
-  background:var(--surface2);
-  font-size:13px;
-  margin-bottom:9px;
-  color:var(--text);
-}
-
-.chat-msg.bot{
-  border-bottom-left-radius:5px;
-}
-
-.chat-msg.user{
-  background:
-    color-mix(in srgb,var(--accent) 15%,var(--surface));
-  border-bottom-right-radius:5px;
-}
-
-.chat-options{
-  display:flex;
-  flex-wrap:wrap;
-  gap:7px;
-}
-
-.chat-option{
-  border:1px solid var(--line);
-  background:var(--surface);
-  color:var(--text);
-  padding:8px 10px;
-  border-radius:10px;
-  font-size:12px;
-  cursor:pointer;
-}
-
-.chat-option:hover{
-  border-color:var(--accent);
-  color:var(--accent);
-}
-
-.chat-fab{
-  position:fixed;
-  right:24px;
-  bottom:24px;
-  width:52px;
-  height:52px;
-  border:1px solid var(--line);
-  border-radius:16px;
-  background:var(--text);
-  color:var(--bg);
-  display:grid;
-  place-items:center;
-  font-size:22px;
-  cursor:pointer;
-  z-index:51;
-  box-shadow:0 12px 35px rgba(0,0,0,.2);
-  transition:.2s;
-}
-
-.chat-fab:hover{
-  transform:translateY(-3px) scale(1.04);
-}
-
-/* RESPONSIVE */
-
 @media(max-width:800px){
-
   .navlinks{
     display:none;
   }
@@ -994,6 +490,10 @@ section{
   .hero{
     grid-template-columns:1fr;
     padding-top:70px;
+  }
+
+  .hero-card{
+    max-width:520px;
   }
 
   .about,
@@ -1027,6 +527,388 @@ section{
     margin-top:5px;
   }
 
+  .facts{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:480px){
+  h1{
+    font-size:50px;
+  }
+
+  .facts{
+    grid-template-columns:1fr;
+  }
+
+  .contact{
+    padding:28px;
+  }
+
+  .contact h2{
+    font-size:32px;
+  }
+}
+
+/* Cursor */
+
+.cursor{
+  position:fixed;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:100;
+  transform:translate(-50%,-50%);
+  background:var(--accent);
+  box-shadow:0 0 18px var(--accent);
+  transition:transform .12s ease,opacity .2s;
+  display:none;
+}
+
+.cursor:after{
+  content:"";
+  position:absolute;
+  inset:-7px;
+  border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);
+  border-radius:50%;
+  animation:cursorPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes cursorPulse{
+  0%,100%{
+    transform:scale(.8);
+    opacity:.35;
+  }
+
+  50%{
+    transform:scale(1.25);
+    opacity:.8;
+  }
+}
+
+.grid-bg{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.32;
+  background-image:
+    linear-gradient(var(--line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:70px 70px;
+  mask-image:linear-gradient(to bottom,black,transparent 75%);
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity .7s ease,transform .7s ease;
+}
+
+.reveal.show{
+  opacity:1;
+  transform:none;
+}
+
+.magnetic{
+  transition:transform .18s ease;
+}
+
+.terminal{
+  margin-top:25px;
+  background:#080b12;
+  color:#b8c5d9;
+  border-radius:18px;
+  border:1px solid #263143;
+  padding:18px;
+  font:12px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace;
+  box-shadow:0 18px 60px rgba(0,0,0,.18);
+}
+
+.terminal .green{
+  color:#19c7a2;
+}
+
+.terminal .purple{
+  color:#9d8cff;
+}
+
+.terminal .blue{
+  color:#5fc8ff;
+}
+
+.project{
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+
+.project:hover{
+  transform:translateY(-8px) rotateX(1deg);
+  box-shadow:var(--shadow);
+}
+
+.skill-filter{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:22px;
+}
+
+.filter{
+  cursor:pointer;
+  background:var(--surface);
+  border:1px solid var(--line);
+  color:var(--muted);
+  padding:8px 12px;
+  border-radius:999px;
+  font-weight:700;
+}
+
+.filter.active,
+.filter:hover{
+  background:var(--text);
+  color:var(--bg);
+}
+
+.counter{
+  font-size:30px;
+  font-weight:900;
+  letter-spacing:-.04em;
+}
+
+.availability{
+  color:var(--accent2);
+  font-weight:800;
+}
+
+.backtop{
+  position:fixed;
+  right:24px;
+  bottom:24px;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  border:1px solid var(--line);
+  background:var(--surface);
+  color:var(--text);
+  display:grid;
+  place-items:center;
+  opacity:0;
+  pointer-events:none;
+  transition:.25s;
+  z-index:30;
+}
+
+.backtop.visible{
+  opacity:1;
+  pointer-events:auto;
+}
+
+/* Decorative */
+
+.orb{
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+  filter:blur(1px);
+  opacity:.45;
+  animation:float 8s ease-in-out infinite;
+}
+
+.orb.one{
+  width:280px;
+  height:280px;
+  background:radial-gradient(circle at 35% 35%,#7c6cff,transparent 65%);
+  right:8%;
+  top:120px;
+}
+
+.orb.two{
+  width:220px;
+  height:220px;
+  background:radial-gradient(circle at 55% 45%,#19c7a2,transparent 65%);
+  left:4%;
+  top:580px;
+  animation-delay:-3s;
+}
+
+@keyframes float{
+  0%,100%{
+    transform:translate3d(0,0,0);
+  }
+
+  50%{
+    transform:translate3d(0,-28px,0);
+  }
+}
+
+.scanline{
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  height:2px;
+  background:linear-gradient(90deg,transparent,var(--accent),transparent);
+  box-shadow:0 0 18px var(--accent);
+  animation:scan 5s linear infinite;
+  opacity:.5;
+}
+
+@keyframes scan{
+  0%{
+    transform:translateY(0);
+  }
+
+  100%{
+    transform:translateY(520px);
+  }
+}
+
+.marquee{
+  overflow:hidden;
+  border-block:1px solid var(--line);
+  padding:13px 0;
+  color:var(--muted);
+  white-space:nowrap;
+}
+
+.marquee-track{
+  display:inline-flex;
+  gap:34px;
+  animation:marquee 24s linear infinite;
+  font-size:12px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.16em;
+}
+
+@keyframes marquee{
+  to{
+    transform:translateX(-50%);
+  }
+}
+
+.metric-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:25px;
+}
+
+.metric{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:20px;
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+
+.metric:hover{
+  box-shadow:var(--shadow);
+}
+
+.metric small{
+  color:var(--muted);
+  display:block;
+}
+
+.metric strong{
+  display:block;
+  font-size:30px;
+  letter-spacing:-.05em;
+  margin-top:5px;
+}
+
+.code-line{
+  font:12px ui-monospace,SFMono-Regular,Menlo,monospace;
+  color:var(--muted);
+  margin-top:12px;
+}
+
+.code-line b{
+  color:var(--accent2);
+}
+
+.project{
+  position:relative;
+  overflow:hidden;
+}
+
+.project:after{
+  content:"↗";
+  position:absolute;
+  right:20px;
+  bottom:18px;
+  font-size:18px;
+  color:var(--accent);
+  opacity:.6;
+}
+
+.project:before{
+  content:"";
+  position:absolute;
+  width:120px;
+  height:120px;
+  right:-55px;
+  top:-55px;
+  background:var(--accent);
+  border-radius:50%;
+  filter:blur(35px);
+  opacity:.09;
+}
+
+.progress{
+  height:5px;
+  background:var(--surface2);
+  border-radius:10px;
+  overflow:hidden;
+  margin-top:12px;
+}
+
+.progress i{
+  display:block;
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  border-radius:10px;
+  transition:width 1.2s ease;
+}
+
+.reveal.show .progress i{
+  width:var(--w);
+}
+
+.hero{
+  isolation:isolate;
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  width:420px;
+  height:420px;
+  right:-150px;
+  top:-120px;
+  background:conic-gradient(
+    from 90deg,
+    var(--accent),
+    #19a9ff,
+    var(--accent2),
+    var(--accent)
+  );
+  filter:blur(70px);
+  opacity:.14;
+  animation:heroGlow 9s linear infinite;
+  pointer-events:none;
+  z-index:-1;
+}
+
+@keyframes heroGlow{
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+@media(max-width:800px){
   .metric-grid{
     grid-template-columns:1fr 1fr;
   }
@@ -1041,35 +923,8 @@ section{
 }
 
 @media(max-width:480px){
-
-  h1{
-    font-size:50px;
-  }
-
-  .facts{
-    grid-template-columns:1fr;
-  }
-
   .metric strong{
     font-size:24px;
-  }
-
-  .contact{
-    padding:28px;
-  }
-
-  .contact h2{
-    font-size:32px;
-  }
-
-  .chatbot{
-    right:16px;
-    bottom:82px;
-  }
-
-  .chat-fab{
-    right:16px;
-    bottom:18px;
   }
 }
 </style>
@@ -1079,1075 +934,717 @@ section{
 
 <div class="app">
 
-<div class="grid-bg"></div>
+  <div class="grid-bg"></div>
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+  <div class="cursor" id="cursor"></div>
 
-<div class="orb one"></div>
-<div class="orb two"></div>
+  <a class="backtop" id="backtop" href="#top">↑</a>
 
-<div class="cursor" id="cursor"></div>
+  <!-- NAVIGATION -->
 
-<a class="backtop" id="backtop" href="#top">↑</a>
+  <header class="nav">
+    <div class="wrap navin">
 
-<!-- NAVIGATION -->
+      <a class="brand" href="#top">
+        AK<span>.</span>
+      </a>
 
-<header class="nav">
+      <nav class="navlinks">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-<div class="wrap navin">
+    </div>
+  </header>
 
-<a class="brand" href="#top">
-AK<span>.</span>
-</a>
+  <main id="top">
 
-<nav class="navlinks">
-<a href="#about">About</a>
-<a href="#skills">Skills</a>
-<a href="#experience">Experience</a>
-<a href="#projects">Projects</a>
-<a href="#contact">Contact</a>
-</nav>
+    <!-- HERO -->
 
-</div>
-
-</header>
-
-
-<main id="top">
-
-<!-- HERO -->
-
-<section class="hero wrap">
-
-<div class="scanline"></div>
-
-<div>
-
-<div class="eyebrow">
-<span class="dot"></span>
-Open to IT opportunities
-</div>
-
-<h1>
-Hi, I'm
-<span class="gradient">
-Ananthakumar.
-</span>
-</h1>
-
-<p>
-
-<span class="availability">
-● Available for opportunities
-</span>
-
-<br>
-
-Cloud Infrastructure / Batch Operations professional
-with a growing interest in software development,
-building practical and reliable IT solutions.
-
-</p>
-
-<div class="actions">
-
-<a class="btn primary magnetic"
-href="#experience">
-Explore my work ↓
-</a>
-
-<a class="btn magnetic"
-href="#contact">
-Let's connect
-</a>
-
-<a class="btn magnetic"
-href="YOUR_CV_FILE.pdf"
-target="_blank"
-rel="noopener">
-📄 Download CV
-</a>
-
-</div>
-
-
-<div class="terminal">
-
-<span class="green">
-◆ ANANTHAKUMAR C
-</span>
-
-<br>
-
-<span class="purple">
-INFRASTRUCTURE
-</span>
-
-·
-
-<span class="blue">
-BATCH OPERATIONS
-</span>
-
-·
-
-<span class="green">
-PRODUCTION
-</span>
-
-<br><br>
-
-<span class="blue">▸</span>
-Monitoring workloads &amp; keeping production moving
-
-<br>
-
-<span class="blue">▸</span>
-Mainframe · JCL · Scheduling · Incident Support
-
-<br>
-
-<span class="green">
-● AVAILABLE FOR IT OPPORTUNITIES
-</span>
-
-</div>
-
-</div>
-
-
-<!-- HERO INFO -->
-
-<aside class="hero-card">
-
-<div class="initials">
-AC
-</div>
-
-<div style="height:18px"></div>
-
-<div class="stat">
-<b>Current role</b>
-<span>
-Engineer — Cloud Infrastructure
-</span>
-</div>
-
-<div class="stat">
-<b>Experience</b>
-<span>
-1+ year IT experience
-</span>
-</div>
-
-<div class="stat">
-<b>Focus</b>
-<span>
-Infrastructure • Batch Ops • Production Support
-</span>
-</div>
-
-<div class="stat">
-<b>Location</b>
-<span>
-Bangalore, India
-</span>
-</div>
-
-<div class="code-line">
-<b>01</b> · production_ready = true
-</div>
-
-</aside>
-
-</section>
-
-
-<!-- MARQUEE -->
-
-<div class="marquee">
-
-<div class="marquee-track">
-
-CLOUD INFRASTRUCTURE
-<span>✦</span>
-
-BATCH OPERATIONS
-<span>✦</span>
-
-PRODUCTION SUPPORT
-<span>✦</span>
-
-IBM MAINFRAME
-<span>✦</span>
-
-JOB SCHEDULING
-<span>✦</span>
-
-INCIDENT MANAGEMENT
-<span>✦</span>
-
-CLOUD INFRASTRUCTURE
-<span>✦</span>
-
-BATCH OPERATIONS
-<span>✦</span>
-
-PRODUCTION SUPPORT
-<span>✦</span>
-
-IBM MAINFRAME
-<span>✦</span>
-
-JOB SCHEDULING
-<span>✦</span>
-
-INCIDENT MANAGEMENT
-
-</div>
-
-</div>
-
-
-<!-- METRICS -->
-
-<section class="reveal">
-
-<div class="wrap">
-
-<div class="metric-grid">
-
-<div class="metric">
-
-<small>
-IT Experience
-</small>
-
-<strong>
-1+
-</strong>
-
-<span class="code-line">
-years
-</span>
-
-</div>
-
-
-<div class="metric">
-
-<small>
-UG CGPA
-</small>
-
-<strong>
-8.59
-</strong>
-
-<span class="code-line">
-/ 10
-</span>
-
-</div>
-
-
-<div class="metric">
-
-<small>
-Core Domain
-</small>
-
-<strong>
-OPS
-</strong>
-
-<span class="code-line">
-production
-</span>
-
-</div>
-
-
-<div class="metric">
-
-<small>
-Availability
-</small>
-
-<strong>
-OPEN
-</strong>
-
-<span class="code-line">
-</span>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
+    <section class="hero wrap hero-wrap">
 
+      <div class="scanline"></div>
 
-<!-- ABOUT -->
+      <div>
 
-<section id="about" class="reveal">
+        <div class="eyebrow">
+          <span class="dot"></span>
+          Open to IT opportunities
+        </div>
 
-<div class="wrap">
+        <h1>
+          Hi, I'm
+          <span class="gradient">Ananthakumar.</span>
+        </h1>
 
-<div class="section-head">
+        <p>
+          <span class="availability">● Available for opportunities</span>
+          <br>
+          Cloud Infrastructure / Batch Operations professional with a growing interest in software development, building practical and reliable IT solutions.
+        </p>
 
-<div>
+        <div class="actions">
 
-<div class="kicker">
-About
-</div>
-
-<h2>
-Built for real production work.
-</h2>
-
-</div>
-
-<p>
-I work on operational reliability:
-monitoring workloads, handling production
-tasks and keeping scheduled processing moving.
-</p>
-
-</div>
-
-
-<div class="about">
-
-<div class="card">
-
-<p>
-
-I'm an IT professional working at LTIMindtree
-in a Cloud Infrastructure / Batch Operations role.
-My day-to-day work includes production monitoring,
-incident and request handling, scheduler operations
-and controlled job execution.
-
-I'm interested in growing deeper into infrastructure,
-operations, monitoring and cloud-focused roles.
-
-</p>
-
-</div>
-
-
-<div class="facts">
-
-<div class="fact">
-
-<small>
-Degree
-</small>
-
-<b>
-B.Sc. Information Technology
-</b>
-
-</div>
-
-
-<div class="fact">
-
-<small>
-UG CGPA
-</small>
-
-<b>
-8.59
-</b>
-
-</div>
-
-
-<div class="fact">
-
-<small>
-Domain
-</small>
-
-<b>
-IT Infrastructure
-</b>
-
-</div>
-
-
-<div class="fact">
-
-<small>
-Work style
-</small>
-
-<b>
-Production / Operations
-</b>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- SKILLS -->
-
-<section id="skills" class="reveal">
-
-<div class="wrap">
-
-<div class="section-head">
-
-<div>
-
-<div class="kicker">
-Skills
-</div>
-
-<h2>
-What I work with.
-</h2>
-
-</div>
-
-<p>
-Practical skills from production operations
-and project work.
-</p>
-
-</div>
-
-
-<div class="skill-filter">
-
-<button class="filter active" data-filter="all">
-All
-</button>
-
-<button class="filter" data-filter="ops">
-Operations
-</button>
-
-<button class="filter" data-filter="dev">
-Development
-</button>
-
-</div>
-
-
-<div class="skills">
-
-<span class="pill" data-type="ops">
-IBM Mainframe
-</span>
+          <a class="btn primary magnetic" href="#experience">
+            Explore my work ↓
+          </a>
 
-<span class="pill" data-type="ops">
-JCL
-</span>
+          <a class="btn magnetic" href="#contact">
+            Let's connect
+          </a>
 
-<span class="pill" data-type="ops">
-Batch Operations
-</span>
+          <a class="btn magnetic"
+             href="YOUR_CV_FILE.pdf"
+             target="_blank"
+             rel="noopener">
+            📄 Download CV
+          </a>
 
-<span class="pill" data-type="ops">
-Job Scheduling
-</span>
+        </div>
 
-<span class="pill" data-type="ops">
-Production Monitoring
-</span>
+        <div class="terminal">
 
-<span class="pill" data-type="ops">
-Incident Management
-</span>
+          <span class="green">◆ ANANTHAKUMAR</span>
+          <br>
 
-<span class="pill" data-type="ops">
-Request Management
-</span>
+          <span class="purple">INFRASTRUCTURE</span>
+          ·
+          <span class="blue">BATCH OPERATIONS</span>
+          ·
+          <span class="green">PRODUCTION</span>
 
-<span class="pill" data-type="ops">
-Job Rerun / Restart
-</span>
+          <br><br>
 
-<span class="pill" data-type="ops">
-Job Migration
-</span>
+          <span class="blue">▸</span>
+          Monitoring workloads &amp; keeping production moving
 
-<span class="pill" data-type="ops">
-JCL Override
-</span>
+          <br>
 
-<span class="pill" data-type="ops">
-Job Creation
-</span>
+          <span class="blue">▸</span>
+          Mainframe · JCL · Scheduling · Incident Support
 
-<span class="pill" data-type="ops">
-IPL Operations
-</span>
+          <br>
 
-<span class="pill" data-type="ops">
-Purge Activities
-</span>
+          <span class="green">● AVAILABLE FOR IT OPPORTUNITIES</span>
 
-<span class="pill" data-type="ops">
-Zena / Scheduler Tools
-</span>
+        </div>
 
-<span class="pill" data-type="dev">
-FastAPI
-</span>
+      </div>
 
-<span class="pill" data-type="dev">
-Jinja
-</span>
+      <!-- HERO CARD -->
 
-<span class="pill" data-type="dev">
-BigQuery
-</span>
+      <aside class="hero-card">
 
-<span class="pill" data-type="dev">
-Bootstrap
-</span>
+        <div class="initials">
+          AC
+        </div>
 
-<span class="pill" data-type="dev">
-Chart.js
-</span>
+        <div style="height:18px"></div>
 
-<span class="pill" data-type="dev">
-Jira
-</span>
+        <div class="stat">
+          <b>Current role</b>
+          <span>Engineer — Cloud Infrastructure</span>
+        </div>
 
-</div>
-
-</div>
+        <div class="stat">
+          <b>Experience</b>
+          <span>1+ year IT experience</span>
+        </div>
 
-</section>
+        <div class="stat">
+          <b>Focus</b>
+          <span>Infrastructure • Batch Ops • Production Support</span>
+        </div>
 
+        <div class="stat">
+          <b>Location</b>
+          <span>Bangalore, India</span>
+        </div>
 
-<!-- EXPERIENCE -->
+        <div class="code-line">
+          <b>01</b> · production_ready = true
+        </div>
 
-<section id="experience" class="reveal">
+      </aside>
 
-<div class="wrap">
+    </section>
 
-<div class="section-head">
+    <!-- MARQUEE -->
 
-<div>
+    <div class="marquee">
 
-<div class="kicker">
-Experience
-</div>
-
-<h2>
-Production experience.
-</h2>
+      <div class="marquee-track">
 
-</div>
+        CLOUD INFRASTRUCTURE
+        <span>✦</span>
 
-<p>
-Current professional experience, kept factual
-and focused on responsibilities.
-</p>
+        BATCH OPERATIONS
+        <span>✦</span>
 
-</div>
+        PRODUCTION SUPPORT
+        <span>✦</span>
 
+        IBM MAINFRAME
+        <span>✦</span>
 
-<div class="card">
+        JOB SCHEDULING
+        <span>✦</span>
 
-<div class="timeline">
+        INCIDENT MANAGEMENT
+        <span>✦</span>
 
-<div class="item">
+        CLOUD INFRASTRUCTURE
+        <span>✦</span>
 
-<div class="role">
+        BATCH OPERATIONS
+        <span>✦</span>
 
-<div>
+        PRODUCTION SUPPORT
+        <span>✦</span>
 
-<h3>
-Engineer — Cloud Infrastructure
-</h3>
+        IBM MAINFRAME
+        <span>✦</span>
 
-<div class="company">
-LTIMindtree · Country Financial Project
-</div>
+        JOB SCHEDULING
+        <span>✦</span>
 
-</div>
+        INCIDENT MANAGEMENT
 
-<div class="date">
-Aug 2025 — Present
-</div>
+      </div>
 
-</div>
+    </div>
 
+    <!-- METRICS -->
 
-<ul>
+    <section class="reveal">
 
-<li>
-Support production operations in a L1.5 Batch Operations environment.
-</li>
+      <div class="wrap">
 
-<li>
-Monitor scheduled workloads and respond to incidents and requests.
-</li>
+        <div class="metric-grid">
 
-<li>
-Perform job rerun, run, restart and migration activities across environments.
-</li>
+          <div class="metric">
+            <small>IT Experience</small>
+            <strong>1+</strong>
+            <span class="code-line">years</span>
+          </div>
 
-<li>
-Work with JCL overrides and creation of new jobs based on operational requirements.
-</li>
+          <div class="metric">
+            <small>UG CGPA</small>
+            <strong>8.59</strong>
+            <span class="code-line">/ 10</span>
+          </div>
 
-<li>
-Handle scheduler operations including predecessor updates, holds and controlled execution.
-</li>
+          <div class="metric">
+            <small>Core Domain</small>
+            <strong>OPS</strong>
+            <span class="code-line">production</span>
+          </div>
 
-<li>
-Participate in operational activities such as IPL and purge tasks,
-with process and access controls.
-</li>
+          <div class="metric">
+            <small>Availability</small>
+            <strong>OPEN</strong>
+            <span class="code-line">to_work = true</span>
+          </div>
 
-</ul>
+        </div>
 
-</div>
+      </div>
 
-</div>
+    </section>
 
-</div>
+    <!-- ABOUT -->
 
-</div>
+    <section id="about" class="reveal">
 
-</section>
+      <div class="wrap">
 
+        <div class="section-head">
 
-<!-- PROJECTS -->
+          <div>
+            <div class="kicker">01 / About</div>
+            <h2>Built for real production work.</h2>
+          </div>
 
-<section id="projects" class="reveal">
+          <p>
+            I work on operational reliability: monitoring workloads,
+            handling production tasks and keeping scheduled processing moving.
+          </p>
 
-<div class="wrap">
+        </div>
 
-<div class="section-head">
+        <div class="about">
 
-<div>
+          <div class="card">
 
-<div class="kicker">
-Projects
-</div>
+            <p>
+              I’m an IT professional working at LTIMindtree in a Cloud Infrastructure / Batch Operations role. My day-to-day work includes production monitoring, incident and request handling, scheduler operations and controlled job execution. I’m interested in growing deeper into infrastructure, operations, monitoring and cloud-focused roles.
+            </p>
 
-<h2>
-Projects.
-</h2>
+          </div>
 
-</div>
+          <div class="facts">
 
-<p>
-Selected projects showcasing dashboard development,
-workflow management and practical web development.
-</p>
+            <div class="fact">
+              <small>Degree</small>
+              <b>B.Sc. Information Technology</b>
+            </div>
 
-</div>
+            <div class="fact">
+              <small>UG CGPA</small>
+              <b>8.59</b>
+            </div>
 
+            <div class="fact">
+              <small>Domain</small>
+              <b>IT Infrastructure</b>
+            </div>
 
-<div class="projects">
+            <div class="fact">
+              <small>Work style</small>
+              <b>Production / Operations</b>
+            </div>
 
+          </div>
 
-<!-- PROJECT 1 -->
+        </div>
 
-<article class="project">
+      </div>
 
-<div class="project-top">
+    </section>
 
-<h3>
-CAP50 Dashboard
-</h3>
+    <!-- SKILLS -->
 
-<span class="num">
-01
-</span>
+    <section id="skills" class="reveal">
 
-</div>
+      <div class="wrap">
 
-<p>
+        <div class="section-head">
 
-Interactive dashboard for project-level reporting
-and visibility, with filtering, summary cards,
-charts and pagination.
+          <div>
+            <div class="kicker">02 / Skills</div>
+            <h2>What I work with.</h2>
+          </div>
 
-</p>
+          <p>
+            Practical skills from production operations and project work.
+          </p>
 
-<div class="tech">
+        </div>
 
-<span>FastAPI</span>
-<span>Jinja</span>
-<span>BigQuery</span>
-<span>Bootstrap</span>
-<span>Chart.js</span>
+        <div class="skill-filter">
 
-</div>
+          <button class="filter active" data-filter="all">
+            All
+          </button>
 
-</article>
+          <button class="filter" data-filter="ops">
+            Operations
+          </button>
 
+          <button class="filter" data-filter="dev">
+            Development
+          </button>
 
-<!-- PROJECT 2 -->
+        </div>
 
-<article class="project">
+        <div class="skills">
 
-<div class="project-top">
+          <span class="pill" data-type="ops">IBM Mainframe</span>
+          <span class="pill" data-type="ops">JCL</span>
+          <span class="pill" data-type="ops">Batch Operations</span>
+          <span class="pill" data-type="ops">Job Scheduling</span>
+          <span class="pill" data-type="ops">Production Monitoring</span>
+          <span class="pill" data-type="ops">Incident Management</span>
+          <span class="pill" data-type="ops">Request Management</span>
+          <span class="pill" data-type="ops">Job Rerun / Restart</span>
+          <span class="pill" data-type="ops">Job Migration</span>
+          <span class="pill" data-type="ops">JCL Override</span>
+          <span class="pill" data-type="ops">Job Creation</span>
+          <span class="pill" data-type="ops">IPL Operations</span>
+          <span class="pill" data-type="ops">Purge Activities</span>
+          <span class="pill" data-type="ops">Zena / Scheduler Tools</span>
 
-<h3>
-Change Management System
-</h3>
+          <span class="pill" data-type="dev">FastAPI</span>
+          <span class="pill" data-type="dev">Jinja</span>
+          <span class="pill" data-type="dev">BigQuery</span>
+          <span class="pill" data-type="dev">Bootstrap</span>
+          <span class="pill" data-type="dev">Chart.js</span>
+          <span class="pill" data-type="dev">Jira</span>
 
-<span class="num">
-02
-</span>
+        </div>
 
-</div>
+      </div>
 
-<p>
+    </section>
 
-Worked on a change-management workflow during
-internship experience, involving Jira and
-SSD ticketing processes.
+    <!-- EXPERIENCE -->
 
-</p>
+    <section id="experience" class="reveal">
 
-<div class="tech">
+      <div class="wrap">
 
-<span>Jira</span>
-<span>SSD Ticketing</span>
-<span>Change Management</span>
+        <div class="section-head">
 
-</div>
+          <div>
+            <div class="kicker">03 / Experience</div>
+            <h2>Production experience.</h2>
+          </div>
 
-</article>
+          <p>
+            Current professional experience, kept factual and focused on responsibilities.
+          </p>
 
+        </div>
 
-<!-- PROJECT 3 -->
+        <div class="card">
 
-<article class="project">
+          <div class="timeline">
 
-<div class="project-top">
+            <div class="item">
 
-<h3>
-On-Road Vehicle Breakdown Website
-</h3>
+              <div class="role">
 
-<span class="num">
-03
-</span>
+                <div>
 
-</div>
+                  <h3>
+                    Engineer — Cloud Infrastructure
+                  </h3>
 
-<p>
+                  <div class="company">
+                    LTIMindtree · Country Financial Project
+                  </div>
 
-Web project designed to help users handle
-on-road vehicle breakdown situations by presenting
-a practical breakdown-support experience.
+                </div>
 
-</p>
+                <div class="date">
+                  Aug 2025 — Present
+                </div>
 
-<div class="tech">
+              </div>
 
-<span>Web Development</span>
-<span>HTML</span>
-<span>CSS</span>
-<span>JavaScript</span>
+              <ul>
 
-</div>
+                <li>
+                  Support production operations in a L1.5 Batch Operations environment.
+                </li>
 
-</article>
+                <li>
+                  Monitor scheduled workloads and respond to incidents and requests.
+                </li>
 
-</div>
+                <li>
+                  Perform job rerun, run, restart and migration activities across environments.
+                </li>
 
-</div>
+                <li>
+                  Work with JCL overrides and creation of new jobs based on operational requirements.
+                </li>
 
-</section>
+                <li>
+                  Handle scheduler operations including predecessor updates, holds and controlled execution.
+                </li>
 
+                <li>
+                  Participate in operational activities such as IPL and purge tasks, with process and access controls.
+                </li>
 
-<!-- EDUCATION -->
+              </ul>
 
-<section class="reveal">
+            </div>
 
-<div class="wrap">
+          </div>
 
-<div class="section-head">
+        </div>
 
-<div>
+      </div>
 
-<div class="kicker">
-Education
-</div>
+    </section>
 
-<h2>
-Education.
-</h2>
+    <!-- PROJECTS -->
 
-</div>
+    <section id="projects" class="reveal">
 
-</div>
+      <div class="wrap">
 
+        <div class="section-head">
 
-<div class="edu">
+          <div>
+            <div class="kicker">04 / Projects</div>
+            <h2>Projects.</h2>
+          </div>
 
+          <p>
+            Selected projects showcasing dashboard development,
+            workflow management and practical web development.
+          </p>
 
-<div class="card">
+        </div>
 
-<h3>
-B.Sc. Information Technology
-</h3>
+        <div class="projects">
 
-<p>
-Karpagam Academy of Higher Education
-</p>
+          <!-- PROJECT 1 -->
 
-<p style="margin-top:8px">
+          <article class="project">
 
-CGPA: 8.59 · First Class with Distinction
+            <div class="project-top">
 
-</p>
+              <h3>
+                CAP50 Dashboard
+              </h3>
 
-</div>
+              <span class="num">
+                01
+              </span>
 
+            </div>
 
-<div class="card">
+            <p>
+              Interactive dashboard for project-level reporting and visibility,
+              with filtering, summary cards, charts and pagination.
+            </p>
 
-<h3>
-Academic foundation
-</h3>
+            <div class="tech">
+              <span>FastAPI</span>
+              <span>Jinja</span>
+              <span>BigQuery</span>
+              <span>Bootstrap</span>
+              <span>Chart.js</span>
+            </div>
 
-<p>
+          </article>
 
-Strong interest in networking,
-infrastructure and Microsoft technology.
+          <!-- PROJECT 2 -->
 
-Additional qualifications can be added here
-once officially confirmed.
+          <article class="project">
 
-</p>
+            <div class="project-top">
 
-</div>
+              <h3>
+                Change Management System
+              </h3>
 
-</div>
+              <span class="num">
+                02
+              </span>
 
-</div>
+            </div>
 
-</section>
+            <p>
+              Worked on a change-management workflow during internship experience,
+              involving Jira and SSD ticketing processes.
+            </p>
 
+            <div class="tech">
+              <span>Jira</span>
+              <span>SSD Ticketing</span>
+              <span>Change Management</span>
+            </div>
 
-<!-- CONTACT -->
+          </article>
 
-<section id="contact">
+          <!-- PROJECT 3 -->
 
-<div class="wrap">
+          <article class="project">
 
-<div class="contact">
+            <div class="project-top">
 
-<div>
+              <h3>
+                On-Road Vehicle Breakdown Website
+              </h3>
 
-<div class="kicker">
-Contact
-</div>
+              <span class="num">
+                03
+              </span>
 
-<h2>
-Let's connect.
-</h2>
+            </div>
 
-<p>
+            <p>
+              Web project designed to help users handle on-road vehicle breakdown
+              situations by presenting a practical breakdown-support experience.
+            </p>
 
-Open to relevant IT infrastructure,
-operations, monitoring and support opportunities.
+            <div class="tech">
+              <span>Web Development</span>
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+            </div>
 
-</p>
+          </article>
 
+        </div>
 
-<div class="actions">
+      </div>
 
-<!-- CHANGE THESE THREE -->
+    </section>
 
-<a class="btn"
-href="mailto:c.ananthakumar88@gmail.com">
-✉️ Email
-</a>
+    <!-- EDUCATION -->
 
-<a class="btn"
-href="https://www.linkedin.com/"
-target="_blank"
-rel="noopener">
-💼 LinkedIn
-</a>
+    <section class="reveal">
 
-<a class="btn"
-href="tel:+916379930263">
-📱 Phone
-</a>
+      <div class="wrap">
 
-</div>
+        <div class="section-head">
 
-</div>
+          <div>
+            <div class="kicker">05 / Education</div>
+            <h2>Education.</h2>
+          </div>
 
+        </div>
 
-<div class="actions">
+        <div class="edu">
 
-<a class="btn primary"
-href="#top">
-Back to top ↑
-</a>
+          <div class="card">
 
-</div>
+            <h3>
+              B.Sc. Information Technology
+            </h3>
 
-</div>
+            <p>
+              Karpagam Academy of Higher Education
+            </p>
 
-</div>
+            <p style="margin-top:8px">
+              CGPA: 8.59 · First Class with Distinction
+            </p>
 
-</section>
+          </div>
 
-</main>
+          <div class="card">
 
+            <h3>
+              Academic foundation
+            </h3>
 
-<!-- CHATBOT -->
+            <p>
+              Strong interest in networking, infrastructure and Microsoft technology.
+              Additional qualifications can be added here once officially confirmed.
+            </p>
 
-<div class="chatbot"
-id="chatbot"
-aria-live="polite">
+          </div>
 
-<div class="chat-head">
+        </div>
 
-<strong>
-💬 Ananthakumar Assistant
-</strong>
+      </div>
 
-<button
-class="chat-close"
-id="chatClose"
-aria-label="Close chat">
-×
-</button>
+    </section>
 
-</div>
+    <!-- CONTACT -->
 
+    <section id="contact">
 
-<div class="chat-body" id="chatBody">
+      <div class="wrap">
 
-<div class="chat-msg bot">
+        <div class="contact">
 
-Hi! 👋 I'm the portfolio assistant.
+          <div>
 
-Ask me about Ananthakumar's experience,
-skills, projects, education or the kind
-of roles he's interested in.
+            <div class="kicker">
+              Contact
+            </div>
 
-</div>
+            <h2>
+              Let's connect.
+            </h2>
 
+            <p>
+              Open to relevant IT infrastructure, operations,
+              monitoring and support opportunities.
+            </p>
 
-<div class="chat-options">
+            <div class="actions">
 
-<button class="chat-option" data-q="experience">
-Experience
-</button>
+              <a class="btn" href="mailto:c.ananthakumar88@gmail.com">
+                ✉️ Email
+              </a>
 
-<button class="chat-option" data-q="skills">
-Skills
-</button>
+              <a class="btn"
+                 href="https://www.linkedin.com/"
+                 target="_blank"
+                 rel="noopener">
+                💼 LinkedIn
+              </a>
 
-<button class="chat-option" data-q="projects">
-Projects
-</button>
+              <a class="btn" href="tel:+916379930263">
+                📱 Phone
+              </a>
 
-<button class="chat-option" data-q="education">
-Education
-</button>
+            </div>
 
-<button class="chat-option" data-q="roles">
-Roles
-</button>
+          </div>
 
-<button class="chat-option" data-q="contact">
-Contact
-</button>
+          <div class="actions">
 
-</div>
+            <a class="btn primary" href="#top">
+              Back to top ↑
+            </a>
 
-</div>
+          </div>
 
-</div>
+        </div>
 
+      </div>
 
-<button
-class="chat-fab"
-id="chatFab"
-aria-label="Open portfolio assistant">
-💬
-</button>
+    </section>
 
+  </main>
 
-<!-- FOOTER -->
+  <!-- FOOTER -->
 
-<footer class="wrap footer">
+  <footer class="wrap footer">
 
-<span>
-© 2026 Ananthakumar C
-</span>
+    <span>
+      © 2026 Ananthakumar C
+    </span>
 
-</footer>
+  </footer>
 
 </div>
-
 
 <script>
 
 /* CUSTOM CURSOR */
 
-const cursor =
-document.getElementById("cursor");
+const cursor = document.getElementById('cursor');
 
-window.addEventListener("mousemove", e => {
+window.addEventListener('mousemove', e => {
 
-  cursor.style.display = "block";
+  cursor.style.display = 'block';
 
-  cursor.style.left =
-    e.clientX + "px";
+  cursor.style.left = e.clientX + 'px';
 
-  cursor.style.top =
-    e.clientY + "px";
+  cursor.style.top = e.clientY + 'px';
 
 });
 
 
 /* MAGNETIC BUTTONS */
 
-document
-.querySelectorAll(".magnetic")
-.forEach(el => {
+document.querySelectorAll('.magnetic').forEach(el => {
 
-  el.addEventListener("mousemove", e => {
+  el.addEventListener('mousemove', e => {
 
-    const r =
-      el.getBoundingClientRect();
-
-    const x =
-      (e.clientX - r.left - r.width / 2) * .12;
-
-    const y =
-      (e.clientY - r.top - r.height / 2) * .12;
+    const r = el.getBoundingClientRect();
 
     el.style.transform =
-      `translate(${x}px,${y}px)`;
+      `translate(${(e.clientX-r.left-r.width/2)*.12}px,
+      ${(e.clientY-r.top-r.height/2)*.12}px)`;
 
   });
 
+});
 
-  el.addEventListener("mouseleave", () => {
 
-    el.style.transform = "";
+document.querySelectorAll('.magnetic').forEach(el => {
+
+  el.addEventListener('mouseleave', () => {
+
+    el.style.transform = '';
 
   });
 
@@ -2156,74 +1653,55 @@ document
 
 /* SCROLL REVEAL */
 
-const observer =
-new IntersectionObserver(
+const observer = new IntersectionObserver(
 
-entries => {
+  entries => {
 
-  entries.forEach(entry => {
+    entries.forEach(e => {
 
-    if(entry.isIntersecting){
+      if(e.isIntersecting){
 
-      entry.target
-      .classList
-      .add("show");
+        e.target.classList.add('show');
 
-    }
+      }
 
-  });
+    });
 
-},
+  },
 
-{
-  threshold:.12
-}
+  {
+    threshold:.12
+  }
 
 );
 
 
-document
-.querySelectorAll(".reveal")
-.forEach(x => observer.observe(x));
+document.querySelectorAll('.reveal').forEach(x => {
+
+  observer.observe(x);
+
+});
 
 
 /* SKILL FILTER */
 
-document
-.querySelectorAll(".filter")
-.forEach(btn => {
+document.querySelectorAll('.filter').forEach(btn => {
 
-  btn.addEventListener("click", () => {
+  btn.addEventListener('click', () => {
 
-    document
-    .querySelectorAll(".filter")
-    .forEach(b =>
-      b.classList.remove("active")
-    );
+    document.querySelectorAll('.filter')
+      .forEach(b => b.classList.remove('active'));
 
-    btn.classList.add("active");
+    btn.classList.add('active');
 
-    const filter =
-      btn.dataset.filter;
+    const f = btn.dataset.filter;
 
-    document
-    .querySelectorAll(".pill")
-    .forEach(pill => {
+    document.querySelectorAll('.pill').forEach(p => {
 
-      if(
-        filter === "all" ||
-        pill.dataset.type === filter
-      ){
-
-        pill.style.display =
-          "inline-block";
-
-      }else{
-
-        pill.style.display =
-          "none";
-
-      }
+      p.style.display =
+        f === 'all' || p.dataset.type === f
+        ? 'inline-block'
+        : 'none';
 
     });
 
@@ -2234,13 +1712,12 @@ document
 
 /* BACK TO TOP */
 
-const back =
-document.getElementById("backtop");
+const back = document.getElementById('backtop');
 
-window.addEventListener("scroll", () => {
+window.addEventListener('scroll', () => {
 
   back.classList.toggle(
-    "visible",
+    'visible',
     scrollY > 600
   );
 
@@ -2249,118 +1726,28 @@ window.addEventListener("scroll", () => {
 
 /* PROJECT 3D EFFECT */
 
-document
-.querySelectorAll(".project")
-.forEach(card => {
+document.querySelectorAll('.project').forEach(card => {
 
-  card.addEventListener("mousemove", e => {
+  card.addEventListener('mousemove', e => {
 
-    const r =
-      card.getBoundingClientRect();
-
-    const rotateX =
-      -(e.clientY - r.top - r.height / 2) / 30;
-
-    const rotateY =
-      (e.clientX - r.left - r.width / 2) / 30;
+    const r = card.getBoundingClientRect();
 
     card.style.transform =
       `perspective(700px)
-       rotateX(${rotateX}deg)
-       rotateY(${rotateY}deg)
-       translateY(-6px)`;
-
-  });
-
-
-  card.addEventListener("mouseleave", () => {
-
-    card.style.transform = "";
+      rotateX(${-(e.clientY-r.top-r.height/2)/30}deg)
+      rotateY(${(e.clientX-r.left-r.width/2)/30}deg)
+      translateY(-6px)`;
 
   });
 
 });
 
 
-/* CHATBOT */
+document.querySelectorAll('.project').forEach(card => {
 
-const chat =
-document.getElementById("chatbot");
+  card.addEventListener('mouseleave', () => {
 
-const fab =
-document.getElementById("chatFab");
-
-const closeChat =
-document.getElementById("chatClose");
-
-const chatBody =
-document.getElementById("chatBody");
-
-
-fab.addEventListener("click", () => {
-
-  chat.classList.add("open");
-
-});
-
-
-closeChat.addEventListener("click", () => {
-
-  chat.classList.remove("open");
-
-});
-
-
-const answers = {
-
-experience:
-"He currently works at LTIMindtree as an Engineer — Cloud Infrastructure on the Country Financial project, supporting L1.5 Batch Operations and production workloads.",
-
-skills:
-"His skills include IBM Mainframe, JCL, batch operations, job scheduling, production monitoring, incident/request management, job rerun/restart, job migration, JCL overrides, FastAPI, Jinja, BigQuery, Bootstrap and Chart.js.",
-
-projects:
-"His projects include the CAP50 Dashboard using FastAPI, Jinja, BigQuery, Bootstrap and Chart.js; a Change Management System involving Jira and SSD ticketing; and an On-Road Vehicle Breakdown Website focused on a practical web experience for vehicle breakdown support.",
-
-education:
-"He holds a B.Sc. in Information Technology from Karpagam Academy of Higher Education with a CGPA of 8.59 and First Class with Distinction.",
-
-roles:
-"He is interested in IT infrastructure, batch operations, production support, monitoring, incident/request management and software development opportunities.",
-
-contact:
-"Use the Contact section to reach him by email, LinkedIn or phone."
-
-};
-
-
-document
-.querySelectorAll(".chat-option")
-.forEach(btn => {
-
-  btn.addEventListener("click", () => {
-
-    const q =
-      btn.dataset.q;
-
-    chatBody.insertAdjacentHTML(
-
-      "beforeend",
-
-      `
-      <div class="chat-msg user">
-        ${btn.textContent}
-      </div>
-
-      <div class="chat-msg bot">
-        ${answers[q]}
-      </div>
-      `
-
-    );
-
-    chatBody.scrollTop =
-      chatBody.scrollHeight;
+    card.style.transform = '';
 
   });
 
