@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ananthakumar C — IT Infrastructure Portfolio</title>
-
 <style>
 :root{
   color-scheme: light dark;
@@ -14,15 +13,12 @@
   --text: light-dark(#111827,#f4f7fb);
   --muted: light-dark(#5b6472,#9aa6b8);
   --line: light-dark(#dfe5ee,#263143);
-  --accent:#6d5dfc;
-  --accent2:#19c7a2;
-  --shadow:0 18px 60px rgba(20,30,50,.10);
+  --accent: #6d5dfc;
+  --accent2: #19c7a2;
+  --shadow: 0 18px 60px rgba(20,30,50,.10);
 }
 
-*{
-  box-sizing:border-box;
-  scroll-behavior:smooth;
-}
+*{box-sizing:border-box;scroll-behavior:smooth}
 
 html,body{
   overflow-x:hidden;
@@ -44,12 +40,12 @@ body{
 
 a{
   color:inherit;
-  text-decoration:none;
+  text-decoration:none
 }
 
 .wrap{
   width:min(1120px,92%);
-  margin:auto;
+  margin:auto
 }
 
 .nav{
@@ -58,35 +54,35 @@ a{
   z-index:20;
   background:color-mix(in srgb,var(--bg) 86%,transparent);
   backdrop-filter:blur(18px);
-  border-bottom:1px solid var(--line);
+  border-bottom:1px solid var(--line)
 }
 
 .navin{
   height:72px;
   display:flex;
   align-items:center;
-  justify-content:space-between;
+  justify-content:space-between
 }
 
 .brand{
   font-weight:900;
   letter-spacing:-.04em;
-  font-size:20px;
+  font-size:20px
 }
 
 .brand span{
-  color:var(--accent);
+  color:var(--accent)
 }
 
 .navlinks{
   display:flex;
   gap:24px;
   color:var(--muted);
-  font-size:14px;
+  font-size:14px
 }
 
 .navlinks a:hover{
-  color:var(--text);
+  color:var(--text)
 }
 
 .hero{
@@ -95,6 +91,7 @@ a{
   grid-template-columns:1.3fr .7fr;
   gap:60px;
   align-items:center;
+  isolation:isolate
 }
 
 .eyebrow{
@@ -106,7 +103,7 @@ a{
   padding:7px 12px;
   border-radius:999px;
   color:var(--muted);
-  font-size:13px;
+  font-size:13px
 }
 
 .dot{
@@ -114,34 +111,34 @@ a{
   height:8px;
   border-radius:50%;
   background:var(--accent2);
-  box-shadow:0 0 0 5px color-mix(in srgb,var(--accent2) 14%,transparent);
+  box-shadow:0 0 0 5px color-mix(in srgb,var(--accent2) 14%,transparent)
 }
 
 h1{
   font-size:clamp(46px,7vw,82px);
   line-height:.98;
   letter-spacing:-.065em;
-  margin:22px 0 22px;
+  margin:22px 0 22px
 }
 
 .gradient{
   background:linear-gradient(110deg,var(--accent),#19a9ff);
   -webkit-background-clip:text;
   background-clip:text;
-  color:transparent;
+  color:transparent
 }
 
 .hero p{
   font-size:18px;
   color:var(--muted);
-  max-width:650px;
+  max-width:650px
 }
 
 .actions{
   display:flex;
   gap:12px;
   flex-wrap:wrap;
-  margin-top:30px;
+  margin-top:30px
 }
 
 .btn{
@@ -152,17 +149,17 @@ h1{
   border-radius:12px;
   border:1px solid var(--line);
   font-weight:750;
-  font-size:14px;
+  font-size:14px
 }
 
 .btn.primary{
   background:var(--text);
   color:var(--bg);
-  border-color:var(--text);
+  border-color:var(--text)
 }
 
 .btn:hover{
-  transform:translateY(-1px);
+  transform:translateY(-1px)
 }
 
 .hero-card{
@@ -172,7 +169,7 @@ h1{
   padding:26px;
   box-shadow:var(--shadow);
   position:relative;
-  overflow:hidden;
+  overflow:hidden
 }
 
 .hero-card:before{
@@ -185,19 +182,20 @@ h1{
   filter:blur(65px);
   opacity:.18;
   right:-70px;
-  top:-70px;
+  top:-70px
 }
 
-.initials{
-  width:82px;
-  height:82px;
-  border-radius:22px;
-  display:grid;
-  place-items:center;
-  background:var(--surface2);
-  font-size:28px;
-  font-weight:900;
-  letter-spacing:-.05em;
+.profile-photo{
+  width:110px;
+  height:110px;
+  border-radius:24px;
+  display:block;
+  object-fit:cover;
+  object-position:center;
+  border:1px solid var(--line);
+  box-shadow:0 12px 30px rgba(0,0,0,.18);
+  position:relative;
+  z-index:1
 }
 
 .stat{
@@ -205,25 +203,25 @@ h1{
   justify-content:space-between;
   gap:20px;
   padding:17px 0;
-  border-bottom:1px solid var(--line);
+  border-bottom:1px solid var(--line)
 }
 
 .stat:last-child{
-  border-bottom:0;
+  border-bottom:0
 }
 
 .stat b{
-  font-size:15px;
+  font-size:15px
 }
 
 .stat span{
   color:var(--muted);
   font-size:13px;
-  text-align:right;
+  text-align:right
 }
 
 section{
-  padding:82px 0;
+  padding:82px 0
 }
 
 .section-head{
@@ -231,7 +229,7 @@ section{
   align-items:end;
   justify-content:space-between;
   gap:30px;
-  margin-bottom:32px;
+  margin-bottom:32px
 }
 
 .kicker{
@@ -239,67 +237,67 @@ section{
   text-transform:uppercase;
   letter-spacing:.16em;
   color:var(--accent);
-  font-weight:850;
+  font-weight:850
 }
 
 .section-head h2{
   font-size:38px;
   line-height:1.05;
   letter-spacing:-.045em;
-  margin:8px 0 0;
+  margin:8px 0 0
 }
 
 .section-head p{
   color:var(--muted);
   max-width:480px;
-  margin:0;
+  margin:0
 }
 
 .about{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:24px;
+  gap:24px
 }
 
 .card{
   background:var(--surface);
   border:1px solid var(--line);
   border-radius:22px;
-  padding:28px;
+  padding:28px
 }
 
 .card p{
   color:var(--muted);
-  margin:0;
+  margin:0
 }
 
 .facts{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:12px;
+  gap:12px
 }
 
 .fact{
   background:var(--surface2);
   padding:18px;
-  border-radius:16px;
+  border-radius:16px
 }
 
 .fact small{
   display:block;
   color:var(--muted);
   font-size:12px;
-  margin-bottom:5px;
+  margin-bottom:5px
 }
 
 .fact b{
-  font-size:15px;
+  font-size:15px
 }
 
 .skills{
   display:flex;
   flex-wrap:wrap;
-  gap:10px;
+  gap:10px
 }
 
 .pill{
@@ -308,16 +306,110 @@ section{
   padding:10px 14px;
   border-radius:999px;
   font-size:13px;
-  font-weight:700;
+  font-weight:700
 }
 
 .pill:hover{
+  border-color:var(--accent)
+}
+
+/* Growth Flow */
+.career-flow{
+  margin-top:34px;
+  padding:28px;
+  background:linear-gradient(135deg,var(--surface),var(--surface2));
+  border:1px solid var(--line);
+  border-radius:26px;
+  position:relative;
+  overflow:hidden
+}
+
+.career-flow:before{
+  content:"";
+  position:absolute;
+  width:260px;
+  height:260px;
+  right:-100px;
+  top:-120px;
+  background:radial-gradient(circle,var(--accent),transparent 68%);
+  opacity:.13;
+  filter:blur(12px)
+}
+
+.career-flow-title{
+  position:relative;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  color:var(--accent);
+  font-weight:850;
+  margin-bottom:22px
+}
+
+.flow{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:0;
+  overflow-x:auto;
+  padding:10px 4px 14px
+}
+
+.flow-step{
+  min-width:max-content;
+  padding:13px 17px;
+  border:1px solid var(--line);
+  background:color-mix(in srgb,var(--surface) 88%,var(--accent) 12%);
+  border-radius:15px;
+  font-size:13px;
+  font-weight:850;
+  box-shadow:0 8px 24px rgba(20,30,50,.08);
+  position:relative
+}
+
+.flow-step:nth-of-type(1){
+  border-color:#6d5dfc
+}
+
+.flow-step:nth-of-type(3){
+  border-color:#19a9ff
+}
+
+.flow-step:nth-of-type(5){
+  border-color:#19c7a2
+}
+
+.flow-step:nth-of-type(7){
+  border-color:#ff9f43
+}
+
+.flow-step:nth-of-type(9){
+  border-color:#e056fd
+}
+
+.flow-step:nth-of-type(11){
+  border-color:#ff5c8a
+}
+
+.flow-step:nth-of-type(13){
+  border-color:#00b894
+}
+
+.flow-step:nth-of-type(15){
   border-color:var(--accent);
+  box-shadow:0 0 28px color-mix(in srgb,var(--accent) 22%,transparent)
+}
+
+.flow-arrow{
+  color:var(--muted);
+  font-weight:950;
+  font-size:18px;
+  padding:0 9px
 }
 
 .timeline{
   position:relative;
-  margin-top:10px;
+  margin-top:10px
 }
 
 .timeline:before{
@@ -327,13 +419,13 @@ section{
   top:5px;
   bottom:5px;
   width:1px;
-  background:var(--line);
+  background:var(--line)
 }
 
 .item{
   position:relative;
   padding-left:42px;
-  margin-bottom:28px;
+  margin-bottom:28px
 }
 
 .item:before{
@@ -345,47 +437,47 @@ section{
   height:11px;
   border-radius:50%;
   background:var(--accent);
-  box-shadow:0 0 0 5px color-mix(in srgb,var(--accent) 13%,transparent);
+  box-shadow:0 0 0 5px color-mix(in srgb,var(--accent) 13%,transparent)
 }
 
 .role{
   display:flex;
   justify-content:space-between;
   gap:20px;
-  align-items:baseline;
+  align-items:baseline
 }
 
 .role h3{
   margin:0;
-  font-size:20px;
+  font-size:20px
 }
 
 .date{
   font-size:13px;
   color:var(--muted);
-  white-space:nowrap;
+  white-space:nowrap
 }
 
 .company{
   color:var(--accent);
   font-weight:750;
-  font-size:14px;
+  font-size:14px
 }
 
 .item ul{
   color:var(--muted);
   margin:12px 0 0;
-  padding-left:18px;
+  padding-left:18px
 }
 
 .item li{
-  margin:7px 0;
+  margin:7px 0
 }
 
 .projects{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:18px;
+  gap:18px
 }
 
 .project{
@@ -396,35 +488,38 @@ section{
   min-height:235px;
   display:flex;
   flex-direction:column;
+  position:relative;
+  overflow:hidden;
+  transition:transform .25s ease,box-shadow .25s ease
 }
 
 .project-top{
   display:flex;
   justify-content:space-between;
-  gap:15px;
+  gap:15px
 }
 
 .project h3{
   margin:0;
-  font-size:21px;
+  font-size:21px
 }
 
 .num{
   font-weight:900;
   color:var(--accent);
-  font-size:12px;
+  font-size:12px
 }
 
 .project p{
   color:var(--muted);
-  font-size:14px;
+  font-size:14px
 }
 
 .tech{
   margin-top:auto;
   display:flex;
   flex-wrap:wrap;
-  gap:7px;
+  gap:7px
 }
 
 .tech span{
@@ -432,22 +527,50 @@ section{
   padding:6px 9px;
   border-radius:8px;
   background:var(--surface2);
-  color:var(--muted);
+  color:var(--muted)
+}
+
+.project:hover{
+  transform:translateY(-8px) rotateX(1deg);
+  box-shadow:var(--shadow)
+}
+
+.project:after{
+  content:"↗";
+  position:absolute;
+  right:20px;
+  bottom:18px;
+  font-size:18px;
+  color:var(--accent);
+  opacity:.6
+}
+
+.project:before{
+  content:"";
+  position:absolute;
+  width:120px;
+  height:120px;
+  right:-55px;
+  top:-55px;
+  background:var(--accent);
+  border-radius:50%;
+  filter:blur(35px);
+  opacity:.09
 }
 
 .edu{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:18px;
+  gap:18px
 }
 
 .edu h3{
-  margin:0 0 5px;
+  margin:0 0 5px
 }
 
 .edu p{
   margin:0;
-  color:var(--muted);
+  color:var(--muted)
 }
 
 .contact{
@@ -458,18 +581,18 @@ section{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:30px;
+  gap:30px
 }
 
 .contact h2{
   font-size:40px;
   letter-spacing:-.05em;
-  margin:8px 0;
+  margin:8px 0
 }
 
 .contact p{
   color:var(--muted);
-  margin:0;
+  margin:0
 }
 
 .footer{
@@ -479,79 +602,78 @@ section{
   display:flex;
   justify-content:space-between;
   gap:20px;
-  border-top:1px solid var(--line);
+  border-top:1px solid var(--line)
 }
 
 @media(max-width:800px){
   .navlinks{
-    display:none;
+    display:none
   }
 
   .hero{
     grid-template-columns:1fr;
-    padding-top:70px;
+    padding-top:70px
   }
 
   .hero-card{
-    max-width:520px;
+    max-width:520px
   }
 
   .about,
   .projects,
   .edu{
-    grid-template-columns:1fr;
+    grid-template-columns:1fr
   }
 
   .section-head{
-    display:block;
+    display:block
   }
 
   .section-head p{
-    margin-top:14px;
+    margin-top:14px
   }
 
   .contact{
-    display:block;
+    display:block
   }
 
   .contact .actions{
-    margin-top:22px;
+    margin-top:22px
   }
 
   .role{
-    display:block;
+    display:block
   }
 
   .date{
     display:block;
-    margin-top:5px;
+    margin-top:5px
   }
 
   .facts{
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:1fr 1fr
   }
 }
 
 @media(max-width:480px){
   h1{
-    font-size:50px;
+    font-size:50px
   }
 
   .facts{
-    grid-template-columns:1fr;
+    grid-template-columns:1fr
   }
 
   .contact{
-    padding:28px;
+    padding:28px
   }
 
   .contact h2{
-    font-size:32px;
+    font-size:32px
   }
 }
 
 /* Cursor */
-
 .cursor{
   position:fixed;
   width:10px;
@@ -563,7 +685,7 @@ section{
   background:var(--accent);
   box-shadow:0 0 18px var(--accent);
   transition:transform .12s ease,opacity .2s;
-  display:none;
+  display:none
 }
 
 .cursor:after{
@@ -572,21 +694,22 @@ section{
   inset:-7px;
   border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);
   border-radius:50%;
-  animation:cursorPulse 1.4s ease-in-out infinite;
+  animation:cursorPulse 1.4s ease-in-out infinite
 }
 
 @keyframes cursorPulse{
   0%,100%{
     transform:scale(.8);
-    opacity:.35;
+    opacity:.35
   }
 
   50%{
     transform:scale(1.25);
-    opacity:.8;
+    opacity:.8
   }
 }
 
+/* Background */
 .grid-bg{
   position:fixed;
   inset:0;
@@ -596,22 +719,22 @@ section{
     linear-gradient(var(--line) 1px,transparent 1px),
     linear-gradient(90deg,var(--line) 1px,transparent 1px);
   background-size:70px 70px;
-  mask-image:linear-gradient(to bottom,black,transparent 75%);
+  mask-image:linear-gradient(to bottom,black,transparent 75%)
 }
 
 .reveal{
   opacity:0;
   transform:translateY(24px);
-  transition:opacity .7s ease,transform .7s ease;
+  transition:opacity .7s ease,transform .7s ease
 }
 
 .reveal.show{
   opacity:1;
-  transform:none;
+  transform:none
 }
 
 .magnetic{
-  transition:transform .18s ease;
+  transition:transform .18s ease
 }
 
 .terminal{
@@ -622,35 +745,28 @@ section{
   border:1px solid #263143;
   padding:18px;
   font:12px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace;
-  box-shadow:0 18px 60px rgba(0,0,0,.18);
+  box-shadow:
+    0 18px 60px rgba(0,0,0,.22),
+    0 0 35px rgba(109,93,252,.1)
 }
 
 .terminal .green{
-  color:#19c7a2;
+  color:#19c7a2
 }
 
 .terminal .purple{
-  color:#9d8cff;
+  color:#9d8cff
 }
 
 .terminal .blue{
-  color:#5fc8ff;
-}
-
-.project{
-  transition:transform .25s ease,box-shadow .25s ease;
-}
-
-.project:hover{
-  transform:translateY(-8px) rotateX(1deg);
-  box-shadow:var(--shadow);
+  color:#5fc8ff
 }
 
 .skill-filter{
   display:flex;
   gap:8px;
   flex-wrap:wrap;
-  margin-bottom:22px;
+  margin-bottom:22px
 }
 
 .filter{
@@ -660,24 +776,24 @@ section{
   color:var(--muted);
   padding:8px 12px;
   border-radius:999px;
-  font-weight:700;
+  font-weight:700
 }
 
 .filter.active,
 .filter:hover{
   background:var(--text);
-  color:var(--bg);
+  color:var(--bg)
 }
 
 .counter{
   font-size:30px;
   font-weight:900;
-  letter-spacing:-.04em;
+  letter-spacing:-.04em
 }
 
 .availability{
   color:var(--accent2);
-  font-weight:800;
+  font-weight:800
 }
 
 .backtop{
@@ -695,23 +811,22 @@ section{
   opacity:0;
   pointer-events:none;
   transition:.25s;
-  z-index:30;
+  z-index:30
 }
 
 .backtop.visible{
   opacity:1;
-  pointer-events:auto;
+  pointer-events:auto
 }
 
-/* Decorative */
-
+/* Floating effects */
 .orb{
   position:absolute;
   border-radius:50%;
   pointer-events:none;
   filter:blur(1px);
   opacity:.45;
-  animation:float 8s ease-in-out infinite;
+  animation:float 8s ease-in-out infinite
 }
 
 .orb.one{
@@ -719,7 +834,7 @@ section{
   height:280px;
   background:radial-gradient(circle at 35% 35%,#7c6cff,transparent 65%);
   right:8%;
-  top:120px;
+  top:120px
 }
 
 .orb.two{
@@ -728,16 +843,16 @@ section{
   background:radial-gradient(circle at 55% 45%,#19c7a2,transparent 65%);
   left:4%;
   top:580px;
-  animation-delay:-3s;
+  animation-delay:-3s
 }
 
 @keyframes float{
   0%,100%{
-    transform:translate3d(0,0,0);
+    transform:translate3d(0,0,0)
   }
 
   50%{
-    transform:translate3d(0,-28px,0);
+    transform:translate3d(0,-28px,0)
   }
 }
 
@@ -750,16 +865,16 @@ section{
   background:linear-gradient(90deg,transparent,var(--accent),transparent);
   box-shadow:0 0 18px var(--accent);
   animation:scan 5s linear infinite;
-  opacity:.5;
+  opacity:.5
 }
 
 @keyframes scan{
   0%{
-    transform:translateY(0);
+    transform:translateY(0)
   }
 
   100%{
-    transform:translateY(520px);
+    transform:translateY(520px)
   }
 }
 
@@ -768,7 +883,7 @@ section{
   border-block:1px solid var(--line);
   padding:13px 0;
   color:var(--muted);
-  white-space:nowrap;
+  white-space:nowrap
 }
 
 .marquee-track{
@@ -778,12 +893,12 @@ section{
   font-size:12px;
   font-weight:800;
   text-transform:uppercase;
-  letter-spacing:.16em;
+  letter-spacing:.16em
 }
 
 @keyframes marquee{
   to{
-    transform:translateX(-50%);
+    transform:translateX(-50%)
   }
 }
 
@@ -791,7 +906,7 @@ section{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:12px;
-  margin-top:25px;
+  margin-top:25px
 }
 
 .metric{
@@ -799,61 +914,33 @@ section{
   border:1px solid var(--line);
   border-radius:18px;
   padding:20px;
-  transition:transform .2s ease,box-shadow .2s ease;
+  transition:transform .2s ease,box-shadow .2s ease
 }
 
 .metric:hover{
-  box-shadow:var(--shadow);
+  box-shadow:var(--shadow)
 }
 
 .metric small{
   color:var(--muted);
-  display:block;
+  display:block
 }
 
 .metric strong{
   display:block;
   font-size:30px;
   letter-spacing:-.05em;
-  margin-top:5px;
+  margin-top:5px
 }
 
 .code-line{
   font:12px ui-monospace,SFMono-Regular,Menlo,monospace;
   color:var(--muted);
-  margin-top:12px;
+  margin-top:12px
 }
 
 .code-line b{
-  color:var(--accent2);
-}
-
-.project{
-  position:relative;
-  overflow:hidden;
-}
-
-.project:after{
-  content:"↗";
-  position:absolute;
-  right:20px;
-  bottom:18px;
-  font-size:18px;
-  color:var(--accent);
-  opacity:.6;
-}
-
-.project:before{
-  content:"";
-  position:absolute;
-  width:120px;
-  height:120px;
-  right:-55px;
-  top:-55px;
-  background:var(--accent);
-  border-radius:50%;
-  filter:blur(35px);
-  opacity:.09;
+  color:var(--accent2)
 }
 
 .progress{
@@ -861,7 +948,7 @@ section{
   background:var(--surface2);
   border-radius:10px;
   overflow:hidden;
-  margin-top:12px;
+  margin-top:12px
 }
 
 .progress i{
@@ -870,15 +957,11 @@ section{
   width:0;
   background:linear-gradient(90deg,var(--accent),var(--accent2));
   border-radius:10px;
-  transition:width 1.2s ease;
+  transition:width 1.2s ease
 }
 
 .reveal.show .progress i{
-  width:var(--w);
-}
-
-.hero{
-  isolation:isolate;
+  width:var(--w)
 }
 
 .hero:after{
@@ -899,32 +982,32 @@ section{
   opacity:.14;
   animation:heroGlow 9s linear infinite;
   pointer-events:none;
-  z-index:-1;
+  z-index:-1
 }
 
 @keyframes heroGlow{
   to{
-    transform:rotate(360deg);
+    transform:rotate(360deg)
   }
 }
 
 @media(max-width:800px){
   .metric-grid{
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:1fr 1fr
   }
 
   .orb{
-    display:none;
+    display:none
   }
 
   .marquee-track{
-    animation-duration:18s;
+    animation-duration:18s
   }
 }
 
 @media(max-width:480px){
   .metric strong{
-    font-size:24px;
+    font-size:24px
   }
 }
 </style>
@@ -934,704 +1017,711 @@ section{
 
 <div class="app">
 
-  <div class="grid-bg"></div>
-  <div class="orb one"></div>
-  <div class="orb two"></div>
-  <div class="cursor" id="cursor"></div>
+<div class="grid-bg"></div>
+<div class="orb one"></div>
+<div class="orb two"></div>
+<div class="cursor" id="cursor"></div>
 
-  <a class="backtop" id="backtop" href="#top">↑</a>
+<a class="backtop" id="backtop" href="#top">↑</a>
 
-  <!-- NAVIGATION -->
+<header class="nav">
+  <div class="wrap navin">
+    <a class="brand" href="#top">AK<span>.</span></a>
 
-  <header class="nav">
-    <div class="wrap navin">
+    <nav class="navlinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
 
-      <a class="brand" href="#top">
-        AK<span>.</span>
-      </a>
+<main id="top">
 
-      <nav class="navlinks">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
+<!-- HERO -->
+<section class="hero wrap hero-wrap">
 
-    </div>
-  </header>
+<div class="scanline"></div>
 
-  <main id="top">
+<div>
 
-    <!-- HERO -->
+<div class="eyebrow">
+  <span class="dot"></span>
+  Open to IT opportunities
+</div>
 
-    <section class="hero wrap hero-wrap">
+<h1>
+  Hi, I'm <span class="gradient">Ananthakumar.</span>
+</h1>
 
-      <div class="scanline"></div>
+<p>
+  <span class="availability">● Available for opportunities</span>
+  <br>
+  Cloud Infrastructure / Batch Operations professional with a growing interest in software development, building practical and reliable IT solutions.
+</p>
 
-      <div>
+<div class="actions">
+  <a class="btn primary magnetic" href="#experience">
+    Explore my work ↓
+  </a>
 
-        <div class="eyebrow">
-          <span class="dot"></span>
-          Open to IT opportunities
-        </div>
+  <a class="btn magnetic" href="#contact">
+    Let's connect
+  </a>
 
-        <h1>
-          Hi, I'm
-          <span class="gradient">Ananthakumar.</span>
-        </h1>
+  <a class="btn magnetic" href="YOUR_CV_FILE.pdf" target="_blank" rel="noopener">
+    📄 Download CV
+  </a>
+</div>
 
-        <p>
-          <span class="availability">● Available for opportunities</span>
-          <br>
-          Cloud Infrastructure / Batch Operations professional with a growing interest in software development, building practical and reliable IT solutions.
-        </p>
+<div class="terminal">
+  <span class="green">◆ ANANTHAKUMAR</span>
+  <br>
 
-        <div class="actions">
+  <span class="purple">INFRASTRUCTURE</span>
+  ·
+  <span class="blue">BATCH OPERATIONS</span>
+  ·
+  <span class="green">PRODUCTION</span>
 
-          <a class="btn primary magnetic" href="#experience">
-            Explore my work ↓
-          </a>
+  <br><br>
 
-          <a class="btn magnetic" href="#contact">
-            Let's connect
-          </a>
+  <span class="blue">▸</span>
+  Monitoring workloads &amp; keeping production moving
 
-          <a class="btn magnetic"
-             href="YOUR_CV_FILE.pdf"
-             target="_blank"
-             rel="noopener">
-            📄 Download CV
-          </a>
+  <br>
 
-        </div>
+  <span class="blue">▸</span>
+  Mainframe · JCL · Scheduling · Incident Support
 
-        <div class="terminal">
+  <br>
 
-          <span class="green">◆ ANANTHAKUMAR</span>
-          <br>
+  <span class="green">● AVAILABLE FOR IT OPPORTUNITIES</span>
+</div>
 
-          <span class="purple">INFRASTRUCTURE</span>
-          ·
-          <span class="blue">BATCH OPERATIONS</span>
-          ·
-          <span class="green">PRODUCTION</span>
+</div>
 
-          <br><br>
+<aside class="hero-card">
 
-          <span class="blue">▸</span>
-          Monitoring workloads &amp; keeping production moving
+<img
+  class="profile-photo"
+  src="photo1.jpg"
+  alt="Ananthakumar C"
+>
 
-          <br>
+<div style="height:18px"></div>
 
-          <span class="blue">▸</span>
-          Mainframe · JCL · Scheduling · Incident Support
+<div class="stat">
+  <b>Current role</b>
+  <span>Engineer — Cloud Infrastructure</span>
+</div>
 
-          <br>
+<div class="stat">
+  <b>Experience</b>
+  <span>1+ year IT experience</span>
+</div>
 
-          <span class="green">● AVAILABLE FOR IT OPPORTUNITIES</span>
+<div class="stat">
+  <b>Focus</b>
+  <span>Infrastructure • Batch Ops • Production Support</span>
+</div>
 
-        </div>
+<div class="stat">
+  <b>Location</b>
+  <span>Bangalore, India</span>
+</div>
 
-      </div>
+<div class="code-line">
+  <b>01</b> · production_ready = true
+</div>
 
-      <!-- HERO CARD -->
+</aside>
 
-      <aside class="hero-card">
+</section>
 
-        <div class="initials">
-          AC
-        </div>
+<!-- MARQUEE -->
+<div class="marquee">
+<div class="marquee-track">
 
-        <div style="height:18px"></div>
+CLOUD INFRASTRUCTURE
+<span>✦</span>
 
-        <div class="stat">
-          <b>Current role</b>
-          <span>Engineer — Cloud Infrastructure</span>
-        </div>
+BATCH OPERATIONS
+<span>✦</span>
 
-        <div class="stat">
-          <b>Experience</b>
-          <span>1+ year IT experience</span>
-        </div>
+PRODUCTION SUPPORT
+<span>✦</span>
 
-        <div class="stat">
-          <b>Focus</b>
-          <span>Infrastructure • Batch Ops • Production Support</span>
-        </div>
+IBM MAINFRAME
+<span>✦</span>
 
-        <div class="stat">
-          <b>Location</b>
-          <span>Bangalore, India</span>
-        </div>
+JOB SCHEDULING
+<span>✦</span>
 
-        <div class="code-line">
-          <b>01</b> · production_ready = true
-        </div>
+INCIDENT MANAGEMENT
+<span>✦</span>
 
-      </aside>
+CLOUD INFRASTRUCTURE
+<span>✦</span>
 
-    </section>
+BATCH OPERATIONS
+<span>✦</span>
 
-    <!-- MARQUEE -->
+PRODUCTION SUPPORT
+<span>✦</span>
 
-    <div class="marquee">
+IBM MAINFRAME
+<span>✦</span>
 
-      <div class="marquee-track">
+JOB SCHEDULING
+<span>✦</span>
 
-        CLOUD INFRASTRUCTURE
-        <span>✦</span>
+INCIDENT MANAGEMENT
 
-        BATCH OPERATIONS
-        <span>✦</span>
+</div>
+</div>
 
-        PRODUCTION SUPPORT
-        <span>✦</span>
+<!-- METRICS -->
+<section class="reveal">
 
-        IBM MAINFRAME
-        <span>✦</span>
+<div class="wrap">
 
-        JOB SCHEDULING
-        <span>✦</span>
+<div class="metric-grid">
 
-        INCIDENT MANAGEMENT
-        <span>✦</span>
+<div class="metric">
+  <small>IT Experience</small>
+  <strong>1+</strong>
+  <span class="code-line">years</span>
+</div>
 
-        CLOUD INFRASTRUCTURE
-        <span>✦</span>
+<div class="metric">
+  <small>UG CGPA</small>
+  <strong>8.59</strong>
+  <span class="code-line">/ 10</span>
+</div>
 
-        BATCH OPERATIONS
-        <span>✦</span>
+<div class="metric">
+  <small>Core Domain</small>
+  <strong>OPS</strong>
+  <span class="code-line">production</span>
+</div>
 
-        PRODUCTION SUPPORT
-        <span>✦</span>
+<div class="metric">
+  <small>Availability</small>
+  <strong>OPEN</strong>
+  <span class="code-line">to_work = true</span>
+</div>
 
-        IBM MAINFRAME
-        <span>✦</span>
+</div>
 
-        JOB SCHEDULING
-        <span>✦</span>
+</div>
 
-        INCIDENT MANAGEMENT
+</section>
 
-      </div>
+<!-- ABOUT -->
+<section id="about" class="reveal">
 
-    </div>
+<div class="wrap">
 
-    <!-- METRICS -->
+<div class="section-head">
 
-    <section class="reveal">
+<div>
+  <div class="kicker">01 / About</div>
+  <h2>Built for real production work.</h2>
+</div>
 
-      <div class="wrap">
+<p>
+  I work on operational reliability: monitoring workloads,
+  handling production tasks and keeping scheduled processing moving.
+</p>
 
-        <div class="metric-grid">
+</div>
 
-          <div class="metric">
-            <small>IT Experience</small>
-            <strong>1+</strong>
-            <span class="code-line">years</span>
-          </div>
+<div class="about">
 
-          <div class="metric">
-            <small>UG CGPA</small>
-            <strong>8.59</strong>
-            <span class="code-line">/ 10</span>
-          </div>
+<div class="card">
 
-          <div class="metric">
-            <small>Core Domain</small>
-            <strong>OPS</strong>
-            <span class="code-line">production</span>
-          </div>
+<p>
+  I’m an IT professional working at LTIMindtree in a Cloud Infrastructure /
+  Batch Operations role. My day-to-day work includes production monitoring,
+  incident and request handling, scheduler operations and controlled job execution.
+  I’m interested in growing deeper into infrastructure, operations, monitoring
+  and cloud-focused roles.
+</p>
 
-          <div class="metric">
-            <small>Availability</small>
-            <strong>OPEN</strong>
-            <span class="code-line">to_work = true</span>
-          </div>
+</div>
 
-        </div>
+<div class="facts">
 
-      </div>
+<div class="fact">
+  <small>Degree</small>
+  <b>B.Sc. Information Technology</b>
+</div>
 
-    </section>
+<div class="fact">
+  <small>UG CGPA</small>
+  <b>8.59</b>
+</div>
 
-    <!-- ABOUT -->
+<div class="fact">
+  <small>Domain</small>
+  <b>IT Infrastructure</b>
+</div>
 
-    <section id="about" class="reveal">
+<div class="fact">
+  <small>Work style</small>
+  <b>Production / Operations</b>
+</div>
 
-      <div class="wrap">
+</div>
 
-        <div class="section-head">
+</div>
 
-          <div>
-            <div class="kicker">01 / About</div>
-            <h2>Built for real production work.</h2>
-          </div>
+</div>
 
-          <p>
-            I work on operational reliability: monitoring workloads,
-            handling production tasks and keeping scheduled processing moving.
-          </p>
+</section>
 
-        </div>
+<!-- SKILLS -->
+<section id="skills" class="reveal">
 
-        <div class="about">
+<div class="wrap">
 
-          <div class="card">
+<div class="section-head">
 
-            <p>
-              I’m an IT professional working at LTIMindtree in a Cloud Infrastructure / Batch Operations role. My day-to-day work includes production monitoring, incident and request handling, scheduler operations and controlled job execution. I’m interested in growing deeper into infrastructure, operations, monitoring and cloud-focused roles.
-            </p>
+<div>
+  <div class="kicker">02 / Skills</div>
+  <h2>What I work with.</h2>
+</div>
 
-          </div>
+<p>
+  Practical skills from production operations and project work.
+</p>
 
-          <div class="facts">
+</div>
 
-            <div class="fact">
-              <small>Degree</small>
-              <b>B.Sc. Information Technology</b>
-            </div>
+<div class="skill-filter">
 
-            <div class="fact">
-              <small>UG CGPA</small>
-              <b>8.59</b>
-            </div>
+<button class="filter active" data-filter="all">
+  All
+</button>
 
-            <div class="fact">
-              <small>Domain</small>
-              <b>IT Infrastructure</b>
-            </div>
+<button class="filter" data-filter="ops">
+  Operations
+</button>
 
-            <div class="fact">
-              <small>Work style</small>
-              <b>Production / Operations</b>
-            </div>
+<button class="filter" data-filter="dev">
+  Development
+</button>
 
-          </div>
+</div>
 
-        </div>
+<div class="skills">
 
-      </div>
+<span class="pill" data-type="ops">IBM Mainframe</span>
+<span class="pill" data-type="ops">JCL</span>
+<span class="pill" data-type="ops">Batch Operations</span>
+<span class="pill" data-type="ops">Job Scheduling</span>
+<span class="pill" data-type="ops">Production Monitoring</span>
+<span class="pill" data-type="ops">Incident Management</span>
+<span class="pill" data-type="ops">Request Management</span>
+<span class="pill" data-type="ops">Job Rerun / Restart</span>
+<span class="pill" data-type="ops">Job Migration</span>
+<span class="pill" data-type="ops">JCL Override</span>
+<span class="pill" data-type="ops">Job Creation</span>
+<span class="pill" data-type="ops">IPL Operations</span>
+<span class="pill" data-type="ops">Purge Activities</span>
+<span class="pill" data-type="ops">Zena / Scheduler Tools</span>
 
-    </section>
+<span class="pill" data-type="dev">FastAPI</span>
+<span class="pill" data-type="dev">Jinja</span>
+<span class="pill" data-type="dev">BigQuery</span>
+<span class="pill" data-type="dev">Bootstrap</span>
+<span class="pill" data-type="dev">Chart.js</span>
+<span class="pill" data-type="dev">Jira</span>
 
-    <!-- SKILLS -->
+</div>
 
-    <section id="skills" class="reveal">
+<!-- MY GROWTH FLOW -->
+<div class="career-flow">
 
-      <div class="wrap">
+<div class="career-flow-title">
+  My Growth Flow
+</div>
 
-        <div class="section-head">
+<div class="flow">
 
-          <div>
-            <div class="kicker">02 / Skills</div>
-            <h2>What I work with.</h2>
-          </div>
+<span class="flow-step">Associate</span>
+<span class="flow-arrow">→</span>
 
-          <p>
-            Practical skills from production operations and project work.
-          </p>
+<span class="flow-step">Engineer</span>
+<span class="flow-arrow">→</span>
 
-        </div>
+<span class="flow-step">Project Transition</span>
+<span class="flow-arrow">→</span>
 
-        <div class="skill-filter">
+<span class="flow-step">KB Creation</span>
+<span class="flow-arrow">→</span>
 
-          <button class="filter active" data-filter="all">
-            All
-          </button>
+<span class="flow-step">KT</span>
+<span class="flow-arrow">→</span>
 
-          <button class="filter" data-filter="ops">
-            Operations
-          </button>
+<span class="flow-step">Production Operations</span>
+<span class="flow-arrow">→</span>
 
-          <button class="filter" data-filter="dev">
-            Development
-          </button>
+<span class="flow-step">SME</span>
+<span class="flow-arrow">→</span>
 
-        </div>
+<span class="flow-step">Shift Lead</span>
 
-        <div class="skills">
+</div>
 
-          <span class="pill" data-type="ops">IBM Mainframe</span>
-          <span class="pill" data-type="ops">JCL</span>
-          <span class="pill" data-type="ops">Batch Operations</span>
-          <span class="pill" data-type="ops">Job Scheduling</span>
-          <span class="pill" data-type="ops">Production Monitoring</span>
-          <span class="pill" data-type="ops">Incident Management</span>
-          <span class="pill" data-type="ops">Request Management</span>
-          <span class="pill" data-type="ops">Job Rerun / Restart</span>
-          <span class="pill" data-type="ops">Job Migration</span>
-          <span class="pill" data-type="ops">JCL Override</span>
-          <span class="pill" data-type="ops">Job Creation</span>
-          <span class="pill" data-type="ops">IPL Operations</span>
-          <span class="pill" data-type="ops">Purge Activities</span>
-          <span class="pill" data-type="ops">Zena / Scheduler Tools</span>
+</div>
 
-          <span class="pill" data-type="dev">FastAPI</span>
-          <span class="pill" data-type="dev">Jinja</span>
-          <span class="pill" data-type="dev">BigQuery</span>
-          <span class="pill" data-type="dev">Bootstrap</span>
-          <span class="pill" data-type="dev">Chart.js</span>
-          <span class="pill" data-type="dev">Jira</span>
+</div>
 
-        </div>
+</section>
 
-      </div>
+<!-- EXPERIENCE -->
+<section id="experience" class="reveal">
 
-    </section>
+<div class="wrap">
 
-    <!-- EXPERIENCE -->
+<div class="section-head">
 
-    <section id="experience" class="reveal">
+<div>
+  <div class="kicker">03 / Experience</div>
+  <h2>My professional journey.</h2>
+</div>
 
-      <div class="wrap">
+<p>
+  My growth path:
+  Associate → Engineer → Project Transition → KB Creation →
+  KT → Production Operations → SME → Shift Lead.
+</p>
 
-        <div class="section-head">
+</div>
 
-          <div>
-            <div class="kicker">03 / Experience</div>
-            <h2>Production experience.</h2>
-          </div>
+<div class="card">
 
-          <p>
-            Current professional experience, kept factual and focused on responsibilities.
-          </p>
+<div class="timeline">
 
-        </div>
+<div class="item">
 
-        <div class="card">
+<div class="role">
 
-          <div class="timeline">
+<div>
 
-            <div class="item">
+<h3>Engineer — Cloud Infrastructure</h3>
 
-              <div class="role">
+<div class="company">
+  LTIMindtree · Country Financial Project
+</div>
 
-                <div>
+</div>
 
-                  <h3>
-                    Engineer — Cloud Infrastructure
-                  </h3>
+<div class="date">
+  Aug 2025 — Present
+</div>
 
-                  <div class="company">
-                    LTIMindtree · Country Financial Project
-                  </div>
+</div>
 
-                </div>
+<ul>
 
-                <div class="date">
-                  Aug 2025 — Present
-                </div>
+<li>
+  Progressed from Associate to Engineer while taking on increasing production and team responsibilities.
+</li>
 
-              </div>
+<li>
+  Supported project transition activities from the beginning, building process understanding and operational readiness.
+</li>
 
-              <ul>
+<li>
+  Created and maintained Knowledge Base (KB) articles and guides to standardize operational processes and support the team.
+</li>
 
-                <li>
-                  Support production operations in a L1.5 Batch Operations environment.
-                </li>
+<li>
+  Participated in Knowledge Transfer (KT) activities and supported team members during the transition into production operations.
+</li>
 
-                <li>
-                  Monitor scheduled workloads and respond to incidents and requests.
-                </li>
+<li>
+  Support production operations in a L1.5 Batch Operations environment, including monitoring scheduled workloads and responding to incidents and requests.
+</li>
 
-                <li>
-                  Perform job rerun, run, restart and migration activities across environments.
-                </li>
+<li>
+  Perform job rerun, run, restart and migration activities across environments, along with JCL overrides and new job creation.
+</li>
 
-                <li>
-                  Work with JCL overrides and creation of new jobs based on operational requirements.
-                </li>
+<li>
+  Handle scheduler operations including predecessor updates, holds and controlled execution, plus IPL and purge activities with process and access controls.
+</li>
 
-                <li>
-                  Handle scheduler operations including predecessor updates, holds and controlled execution.
-                </li>
+<li>
+  Worked in an SME / Shift Lead capacity by supporting team members, coordinating shift activities and helping resolve operational issues.
+</li>
 
-                <li>
-                  Participate in operational activities such as IPL and purge tasks, with process and access controls.
-                </li>
+<li>
+  Assist with team coordination and day-to-day people support as part of shift operations.
+</li>
 
-              </ul>
+</ul>
 
-            </div>
+</div>
 
-          </div>
+</div>
 
-        </div>
+</div>
 
-      </div>
+</div>
 
-    </section>
+</section>
 
-    <!-- PROJECTS -->
+<!-- PROJECTS -->
+<section id="projects" class="reveal">
 
-    <section id="projects" class="reveal">
+<div class="wrap">
 
-      <div class="wrap">
+<div class="section-head">
 
-        <div class="section-head">
+<div>
+  <div class="kicker">04 / Projects</div>
+  <h2>Projects.</h2>
+</div>
 
-          <div>
-            <div class="kicker">04 / Projects</div>
-            <h2>Projects.</h2>
-          </div>
+<p>
+  Selected projects showcasing dashboard development,
+  workflow management and practical web development.
+</p>
 
-          <p>
-            Selected projects showcasing dashboard development,
-            workflow management and practical web development.
-          </p>
+</div>
 
-        </div>
+<div class="projects">
 
-        <div class="projects">
+<!-- PROJECT 1 -->
+<article class="project">
 
-          <!-- PROJECT 1 -->
+<div class="project-top">
 
-          <article class="project">
+<h3>CAP50 Dashboard</h3>
 
-            <div class="project-top">
+<span class="num">01</span>
 
-              <h3>
-                CAP50 Dashboard
-              </h3>
+</div>
 
-              <span class="num">
-                01
-              </span>
+<p>
+  Interactive dashboard for project-level reporting and visibility,
+  with filtering, summary cards, charts and pagination.
+</p>
 
-            </div>
+<div class="tech">
 
-            <p>
-              Interactive dashboard for project-level reporting and visibility,
-              with filtering, summary cards, charts and pagination.
-            </p>
+<span>FastAPI</span>
+<span>Jinja</span>
+<span>BigQuery</span>
+<span>Bootstrap</span>
+<span>Chart.js</span>
 
-            <div class="tech">
-              <span>FastAPI</span>
-              <span>Jinja</span>
-              <span>BigQuery</span>
-              <span>Bootstrap</span>
-              <span>Chart.js</span>
-            </div>
+</div>
 
-          </article>
+</article>
 
-          <!-- PROJECT 2 -->
+<!-- PROJECT 2 -->
+<article class="project">
 
-          <article class="project">
+<div class="project-top">
 
-            <div class="project-top">
+<h3>Change Management System</h3>
 
-              <h3>
-                Change Management System
-              </h3>
+<span class="num">02</span>
 
-              <span class="num">
-                02
-              </span>
+</div>
 
-            </div>
+<p>
+  Worked on a change-management workflow during internship experience,
+  involving Jira and SSD ticketing processes.
+</p>
 
-            <p>
-              Worked on a change-management workflow during internship experience,
-              involving Jira and SSD ticketing processes.
-            </p>
+<div class="tech">
 
-            <div class="tech">
-              <span>Jira</span>
-              <span>SSD Ticketing</span>
-              <span>Change Management</span>
-            </div>
+<span>Jira</span>
+<span>SSD Ticketing</span>
+<span>Change Management</span>
 
-          </article>
+</div>
 
-          <!-- PROJECT 3 -->
+</article>
 
-          <article class="project">
+<!-- PROJECT 3 -->
+<article class="project">
 
-            <div class="project-top">
+<div class="project-top">
 
-              <h3>
-                On-Road Vehicle Breakdown Website
-              </h3>
+<h3>On-Road Vehicle Breakdown Website</h3>
 
-              <span class="num">
-                03
-              </span>
+<span class="num">03</span>
 
-            </div>
+</div>
 
-            <p>
-              Web project designed to help users handle on-road vehicle breakdown
-              situations by presenting a practical breakdown-support experience.
-            </p>
+<p>
+  Web project designed to help users handle on-road vehicle breakdown
+  situations by presenting a practical breakdown-support experience.
+</p>
 
-            <div class="tech">
-              <span>Web Development</span>
-              <span>HTML</span>
-              <span>CSS</span>
-              <span>JavaScript</span>
-            </div>
+<div class="tech">
 
-          </article>
+<span>Web Development</span>
+<span>HTML</span>
+<span>CSS</span>
+<span>JavaScript</span>
 
-        </div>
+</div>
 
-      </div>
+</article>
 
-    </section>
+</div>
 
-    <!-- EDUCATION -->
+</div>
 
-    <section class="reveal">
+</section>
 
-      <div class="wrap">
+<!-- EDUCATION -->
+<section class="reveal">
 
-        <div class="section-head">
+<div class="wrap">
 
-          <div>
-            <div class="kicker">05 / Education</div>
-            <h2>Education.</h2>
-          </div>
+<div class="section-head">
 
-        </div>
+<div>
+  <div class="kicker">05 / Education</div>
+  <h2>Education.</h2>
+</div>
 
-        <div class="edu">
+</div>
 
-          <div class="card">
+<div class="edu">
 
-            <h3>
-              B.Sc. Information Technology
-            </h3>
+<div class="card">
 
-            <p>
-              Karpagam Academy of Higher Education
-            </p>
+<h3>B.Sc. Information Technology</h3>
 
-            <p style="margin-top:8px">
-              CGPA: 8.59 · First Class with Distinction
-            </p>
+<p>
+  Karpagam Academy of Higher Education
+</p>
 
-          </div>
+<p style="margin-top:8px">
+  CGPA: 8.59 · First Class with Distinction
+</p>
 
-          <div class="card">
+</div>
 
-            <h3>
-              Academic foundation
-            </h3>
+<div class="card">
 
-            <p>
-              Strong interest in networking, infrastructure and Microsoft technology.
-              Additional qualifications can be added here once officially confirmed.
-            </p>
+<h3>Academic foundation</h3>
 
-          </div>
+<p>
+  Strong interest in networking, infrastructure and Microsoft technology.
+  Additional qualifications can be added here once officially confirmed.
+</p>
 
-        </div>
+</div>
 
-      </div>
+</div>
 
-    </section>
+</div>
 
-    <!-- CONTACT -->
+</section>
 
-    <section id="contact">
+<!-- CONTACT -->
+<section id="contact">
 
-      <div class="wrap">
+<div class="wrap">
 
-        <div class="contact">
+<div class="contact">
 
-          <div>
+<div>
 
-            <div class="kicker">
-              Contact
-            </div>
+<div class="kicker">
+  Contact
+</div>
 
-            <h2>
-              Let's connect.
-            </h2>
+<h2>
+  Let's connect.
+</h2>
 
-            <p>
-              Open to relevant IT infrastructure, operations,
-              monitoring and support opportunities.
-            </p>
+<p>
+  Open to relevant IT infrastructure, operations,
+  monitoring and support opportunities.
+</p>
 
-            <div class="actions">
+<div class="actions">
 
-              <a class="btn" href="mailto:c.ananthakumar88@gmail.com">
-                ✉️ Email
-              </a>
+<a class="btn" href="mailto:your.email@example.com">
+  ✉️ Email
+</a>
 
-              <a class="btn"
-                 href="https://www.linkedin.com/"
-                 target="_blank"
-                 rel="noopener">
-                💼 LinkedIn
-              </a>
+<a
+  class="btn"
+  href="https://www.linkedin.com/"
+  target="_blank"
+  rel="noopener"
+>
+  💼 LinkedIn
+</a>
 
-              <a class="btn" href="tel:+916379930263">
-                📱 Phone
-              </a>
+<a class="btn" href="tel:+91XXXXXXXXXX">
+  📱 Phone
+</a>
 
-            </div>
+</div>
 
-          </div>
+</div>
 
-          <div class="actions">
+<div class="actions">
 
-            <a class="btn primary" href="#top">
-              Back to top ↑
-            </a>
+<a class="btn primary" href="#top">
+  Back to top ↑
+</a>
 
-          </div>
+</div>
 
-        </div>
+</div>
 
-      </div>
+</div>
 
-    </section>
+</section>
 
-  </main>
+</main>
 
-  <!-- FOOTER -->
+<footer class="wrap footer">
 
-  <footer class="wrap footer">
+<span>
+  © 2026 Ananthakumar C
+</span>
 
-    <span>
-      © 2026 Ananthakumar C
-    </span>
-
-  </footer>
+</footer>
 
 </div>
 
 <script>
 
-/* CUSTOM CURSOR */
+/* Custom cursor */
+const cursor=document.getElementById('cursor');
 
-const cursor = document.getElementById('cursor');
-
-window.addEventListener('mousemove', e => {
-
-  cursor.style.display = 'block';
-
-  cursor.style.left = e.clientX + 'px';
-
-  cursor.style.top = e.clientY + 'px';
-
+window.addEventListener('mousemove',e=>{
+  cursor.style.display='block';
+  cursor.style.left=e.clientX+'px';
+  cursor.style.top=e.clientY+'px';
 });
 
+/* Magnetic buttons */
+document.querySelectorAll('.magnetic').forEach(el=>{
 
-/* MAGNETIC BUTTONS */
+  el.addEventListener('mousemove',e=>{
 
-document.querySelectorAll('.magnetic').forEach(el => {
+    const r=el.getBoundingClientRect();
 
-  el.addEventListener('mousemove', e => {
-
-    const r = el.getBoundingClientRect();
-
-    el.style.transform =
+    el.style.transform=
       `translate(${(e.clientX-r.left-r.width/2)*.12}px,
       ${(e.clientY-r.top-r.height/2)*.12}px)`;
 
@@ -1639,100 +1729,67 @@ document.querySelectorAll('.magnetic').forEach(el => {
 
 });
 
-
-document.querySelectorAll('.magnetic').forEach(el => {
-
-  el.addEventListener('mouseleave', () => {
-
-    el.style.transform = '';
-
-  });
-
-});
-
-
-/* SCROLL REVEAL */
-
-const observer = new IntersectionObserver(
-
-  entries => {
-
-    entries.forEach(e => {
-
-      if(e.isIntersecting){
-
-        e.target.classList.add('show');
-
-      }
-
-    });
-
-  },
-
-  {
-    threshold:.12
-  }
-
+document.querySelectorAll('.magnetic').forEach(el=>
+  el.addEventListener('mouseleave',()=>{
+    el.style.transform=''
+  })
 );
 
+/* Reveal animation */
+const observer=new IntersectionObserver(
+  entries=>
+    entries.forEach(e=>
+      e.isIntersecting &&
+      e.target.classList.add('show')
+    ),
+  {threshold:.12}
+);
 
-document.querySelectorAll('.reveal').forEach(x => {
+document
+  .querySelectorAll('.reveal')
+  .forEach(x=>observer.observe(x));
 
-  observer.observe(x);
+/* Skill filters */
+document.querySelectorAll('.filter').forEach(btn=>{
 
-});
+  btn.addEventListener('click',()=>{
 
-
-/* SKILL FILTER */
-
-document.querySelectorAll('.filter').forEach(btn => {
-
-  btn.addEventListener('click', () => {
-
-    document.querySelectorAll('.filter')
-      .forEach(b => b.classList.remove('active'));
+    document
+      .querySelectorAll('.filter')
+      .forEach(b=>b.classList.remove('active'));
 
     btn.classList.add('active');
 
-    const f = btn.dataset.filter;
+    const f=btn.dataset.filter;
 
-    document.querySelectorAll('.pill').forEach(p => {
-
-      p.style.display =
-        f === 'all' || p.dataset.type === f
-        ? 'inline-block'
-        : 'none';
-
-    });
+    document
+      .querySelectorAll('.pill')
+      .forEach(p=>{
+        p.style.display=
+          f==='all' || p.dataset.type===f
+            ? 'inline-block'
+            : 'none';
+      });
 
   });
 
 });
 
+/* Back to top */
+const back=document.getElementById('backtop');
 
-/* BACK TO TOP */
-
-const back = document.getElementById('backtop');
-
-window.addEventListener('scroll', () => {
-
-  back.classList.toggle(
-    'visible',
-    scrollY > 600
-  );
-
+window.addEventListener('scroll',()=>{
+  back.classList.toggle('visible',scrollY>600);
 });
 
+/* Project 3D hover */
+document.querySelectorAll('.project').forEach(card=>{
 
-/* PROJECT 3D EFFECT */
+  card.addEventListener('mousemove',e=>{
 
-document.querySelectorAll('.project').forEach(card => {
+    const r=card.getBoundingClientRect();
 
-  card.addEventListener('mousemove', e => {
-
-    const r = card.getBoundingClientRect();
-
-    card.style.transform =
+    card.style.transform=
       `perspective(700px)
       rotateX(${-(e.clientY-r.top-r.height/2)/30}deg)
       rotateY(${(e.clientX-r.left-r.width/2)/30}deg)
@@ -1742,16 +1799,11 @@ document.querySelectorAll('.project').forEach(card => {
 
 });
 
-
-document.querySelectorAll('.project').forEach(card => {
-
-  card.addEventListener('mouseleave', () => {
-
-    card.style.transform = '';
-
-  });
-
-});
+document.querySelectorAll('.project').forEach(card=>
+  card.addEventListener('mouseleave',()=>{
+    card.style.transform=''
+  })
+);
 
 </script>
 
