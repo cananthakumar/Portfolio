@@ -8,17 +8,16 @@
 
 <style>
 :root{
-  color-scheme: dark;
-  --bg:#080b12;
-  --surface:#101521;
-  --surface2:#151c2a;
-  --text:#f4f7fb;
-  --muted:#9aa6b8;
-  --line:#263143;
+  color-scheme: light dark;
+  --bg: light-dark(#f7f9fc,#080b12);
+  --surface: light-dark(#ffffff,#101521);
+  --surface2: light-dark(#f0f4fa,#151c2a);
+  --text: light-dark(#111827,#f4f7fb);
+  --muted: light-dark(#5b6472,#9aa6b8);
+  --line: light-dark(#dfe5ee,#263143);
   --accent:#6d5dfc;
   --accent2:#19c7a2;
-  --blue:#19a9ff;
-  --shadow:0 18px 60px rgba(0,0,0,.3);
+  --shadow:0 18px 60px rgba(20,30,50,.12);
 }
 
 *{
@@ -30,9 +29,14 @@ body{
   margin:0;
   background:var(--bg);
   color:var(--text);
-  font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,
+  BlinkMacSystemFont,"Segoe UI",sans-serif;
   line-height:1.6;
-  overflow-x:hidden;
+}
+
+.app{
+  min-height:100vh;
+  background:var(--bg);
 }
 
 a{
@@ -40,115 +44,33 @@ a{
   text-decoration:none;
 }
 
-.app{
-  min-height:100vh;
-  position:relative;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 10% 10%,rgba(109,93,252,.12),transparent 28%),
-    radial-gradient(circle at 90% 30%,rgba(25,199,162,.08),transparent 25%),
-    var(--bg);
+.wrap{
+  width:min(1120px,92%);
+  margin:auto;
 }
 
-/* BACKGROUND */
-
-.grid-bg{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  opacity:.25;
-  background-image:
-    linear-gradient(var(--line) 1px,transparent 1px),
-    linear-gradient(90deg,var(--line) 1px,transparent 1px);
-  background-size:70px 70px;
-  mask-image:linear-gradient(to bottom,black,transparent 90%);
-  animation:gridMove 25s linear infinite;
-  z-index:0;
-}
-
-@keyframes gridMove{
-  to{
-    background-position:70px 70px;
-  }
-}
-
-.stars{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  background-image:
-    radial-gradient(circle,var(--accent) 1px,transparent 1.5px),
-    radial-gradient(circle,var(--accent2) 1px,transparent 1.5px);
-  background-size:120px 120px,180px 180px;
-  opacity:.15;
-  animation:starsMove 20s linear infinite;
-}
-
-@keyframes starsMove{
-  to{
-    background-position:120px 60px,-180px 100px;
-  }
-}
-
-.orb{
-  position:absolute;
-  border-radius:50%;
-  pointer-events:none;
-  filter:blur(2px);
-  opacity:.4;
-  animation:float 8s ease-in-out infinite;
-}
-
-.orb.one{
-  width:300px;
-  height:300px;
-  right:5%;
-  top:100px;
-  background:radial-gradient(circle,#6d5dfc,transparent 65%);
-}
-
-.orb.two{
-  width:240px;
-  height:240px;
-  left:2%;
-  top:600px;
-  background:radial-gradient(circle,#19c7a2,transparent 65%);
-  animation-delay:-3s;
-}
-
-@keyframes float{
-  0%,100%{
-    transform:translateY(0);
-  }
-  50%{
-    transform:translateY(-30px);
-  }
-}
-
-/* NAV */
+/* NAVIGATION */
 
 .nav{
   position:sticky;
   top:0;
-  z-index:50;
-  background:rgba(8,11,18,.75);
+  z-index:20;
+  background:color-mix(in srgb,var(--bg) 86%,transparent);
   backdrop-filter:blur(18px);
   border-bottom:1px solid var(--line);
 }
 
 .navin{
-  width:min(1120px,92%);
   height:72px;
-  margin:auto;
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
 }
 
 .brand{
-  font-size:21px;
   font-weight:900;
-  letter-spacing:-.05em;
+  letter-spacing:-.04em;
+  font-size:20px;
 }
 
 .brand span{
@@ -157,77 +79,65 @@ a{
 
 .navlinks{
   display:flex;
-  gap:25px;
+  gap:24px;
   color:var(--muted);
   font-size:14px;
 }
 
 .navlinks a{
-  transition:.25s;
+  transition:.2s;
 }
 
 .navlinks a:hover{
   color:var(--text);
 }
 
-/* COMMON */
-
-.wrap{
-  width:min(1120px,92%);
-  margin:auto;
-}
-
-section{
-  padding:90px 0;
-}
-
-.section-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  gap:30px;
-  margin-bottom:35px;
-}
-
-.kicker{
-  color:var(--accent);
-  font-size:12px;
-  font-weight:900;
-  text-transform:uppercase;
-  letter-spacing:.16em;
-}
-
-h2{
-  font-size:40px;
-  line-height:1.05;
-  letter-spacing:-.05em;
-  margin:8px 0 0;
-}
-
-.section-head p{
-  color:var(--muted);
-  max-width:480px;
-}
-
 /* HERO */
 
 .hero{
-  min-height:calc(100vh - 72px);
-  padding:100px 0 80px;
+  padding:105px 0 80px;
   display:grid;
-  grid-template-columns:1.25fr .75fr;
+  grid-template-columns:1.3fr .7fr;
   gap:60px;
   align-items:center;
   position:relative;
+  isolation:isolate;
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  width:420px;
+  height:420px;
+  right:-150px;
+  top:-120px;
+  background:conic-gradient(
+    from 90deg,
+    var(--accent),
+    #19a9ff,
+    var(--accent2),
+    var(--accent)
+  );
+  filter:blur(70px);
+  opacity:.14;
+  animation:heroGlow 9s linear infinite;
+  pointer-events:none;
+  z-index:-1;
+}
+
+@keyframes heroGlow{
+  to{
+    transform:rotate(360deg);
+  }
 }
 
 .eyebrow{
   display:inline-flex;
   align-items:center;
-  gap:10px;
+  gap:9px;
   border:1px solid var(--line);
-  background:rgba(16,21,33,.8);
-  padding:8px 14px;
+  background:var(--surface);
+  padding:7px 12px;
   border-radius:999px;
   color:var(--muted);
   font-size:13px;
@@ -238,25 +148,28 @@ h2{
   height:8px;
   border-radius:50%;
   background:var(--accent2);
-  box-shadow:0 0 18px var(--accent2);
+  box-shadow:
+  0 0 0 5px
+  color-mix(in srgb,var(--accent2) 14%,transparent);
 }
 
 h1{
-  font-size:clamp(48px,7vw,82px);
-  line-height:.95;
-  letter-spacing:-.07em;
-  margin:25px 0;
+  font-size:clamp(46px,7vw,82px);
+  line-height:.98;
+  letter-spacing:-.065em;
+  margin:22px 0;
 }
 
 .gradient{
-  background:linear-gradient(110deg,var(--accent),var(--blue));
+  background:linear-gradient(110deg,var(--accent),#19a9ff);
   -webkit-background-clip:text;
+  background-clip:text;
   color:transparent;
 }
 
 .hero p{
-  color:var(--muted);
   font-size:18px;
+  color:var(--muted);
   max-width:650px;
 }
 
@@ -267,91 +180,94 @@ h1{
 
 .actions{
   display:flex;
-  flex-wrap:wrap;
   gap:12px;
+  flex-wrap:wrap;
   margin-top:30px;
 }
 
 .btn{
   display:inline-flex;
-  justify-content:center;
   align-items:center;
-  padding:13px 19px;
-  border:1px solid var(--line);
+  justify-content:center;
+  padding:12px 18px;
   border-radius:12px;
-  font-weight:800;
+  border:1px solid var(--line);
+  font-weight:750;
   font-size:14px;
-  transition:.25s;
+  transition:.2s;
 }
 
 .btn:hover{
-  transform:translateY(-3px);
+  transform:translateY(-2px);
   border-color:var(--accent);
-  box-shadow:0 10px 30px rgba(109,93,252,.18);
 }
 
 .btn.primary{
   background:var(--text);
   color:var(--bg);
+  border-color:var(--text);
 }
 
 /* TERMINAL */
 
 .terminal{
-  margin-top:28px;
-  padding:20px;
-  background:#05070c;
-  border:1px solid var(--line);
+  margin-top:25px;
+  background:#080b12;
+  color:#b8c5d9;
   border-radius:18px;
-  font:12px/1.8 monospace;
-  box-shadow:var(--shadow);
+  border:1px solid #263143;
+  padding:18px;
+  font:12px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace;
+  box-shadow:
+    0 18px 60px rgba(0,0,0,.22),
+    0 0 35px rgba(109,93,252,.1);
 }
 
-.green{
-  color:var(--accent2);
+.terminal .green{
+  color:#19c7a2;
 }
 
-.purple{
-  color:#a795ff;
+.terminal .purple{
+  color:#9d8cff;
 }
 
-.blue{
+.terminal .blue{
   color:#5fc8ff;
 }
 
 /* HERO CARD */
 
 .hero-card{
-  position:relative;
-  padding:28px;
-  background:rgba(16,21,33,.85);
+  background:var(--surface);
   border:1px solid var(--line);
   border-radius:28px;
+  padding:26px;
   box-shadow:var(--shadow);
+  position:relative;
   overflow:hidden;
 }
 
 .hero-card:before{
   content:"";
   position:absolute;
-  width:200px;
-  height:200px;
-  right:-80px;
-  top:-80px;
+  width:180px;
+  height:180px;
   border-radius:50%;
   background:var(--accent);
   filter:blur(65px);
   opacity:.18;
+  right:-70px;
+  top:-70px;
 }
 
 .initials{
-  width:85px;
-  height:85px;
+  width:82px;
+  height:82px;
+  border-radius:22px;
   display:grid;
   place-items:center;
-  border-radius:22px;
   background:var(--surface2);
-  font-size:29px;
+  font-size:28px;
   font-weight:900;
 }
 
@@ -359,7 +275,7 @@ h1{
   display:flex;
   justify-content:space-between;
   gap:20px;
-  padding:18px 0;
+  padding:17px 0;
   border-bottom:1px solid var(--line);
 }
 
@@ -368,7 +284,7 @@ h1{
 }
 
 .stat b{
-  font-size:14px;
+  font-size:15px;
 }
 
 .stat span{
@@ -377,66 +293,49 @@ h1{
   text-align:right;
 }
 
-/* MARQUEE */
-
-.marquee{
-  overflow:hidden;
-  border-block:1px solid var(--line);
-  padding:14px 0;
-  white-space:nowrap;
-  color:var(--muted);
-}
-
-.marquee-track{
-  display:inline-flex;
-  gap:35px;
-  font-size:12px;
-  font-weight:900;
-  letter-spacing:.15em;
-  animation:marquee 25s linear infinite;
-}
-
-@keyframes marquee{
-  to{
-    transform:translateX(-50%);
-  }
-}
-
-/* METRICS */
-
-.metric-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:14px;
-}
-
-.metric{
-  padding:22px;
-  background:var(--surface);
-  border:1px solid var(--line);
-  border-radius:18px;
-  transition:.3s;
-}
-
-.metric:hover{
-  transform:translateY(-5px);
-  border-color:var(--accent);
-}
-
-.metric small{
-  color:var(--muted);
-}
-
-.metric strong{
-  display:block;
-  font-size:31px;
-  margin-top:5px;
-}
-
 .code-line{
-  margin-top:8px;
-  font:12px monospace;
+  font:12px ui-monospace,SFMono-Regular,Menlo,monospace;
   color:var(--muted);
+  margin-top:12px;
+}
+
+.code-line b{
+  color:var(--accent2);
+}
+
+/* SECTIONS */
+
+section{
+  padding:82px 0;
+}
+
+.section-head{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:30px;
+  margin-bottom:32px;
+}
+
+.kicker{
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  color:var(--accent);
+  font-weight:850;
+}
+
+.section-head h2{
+  font-size:38px;
+  line-height:1.05;
+  letter-spacing:-.045em;
+  margin:8px 0 0;
+}
+
+.section-head p{
+  color:var(--muted);
+  max-width:480px;
+  margin:0;
 }
 
 /* CARDS */
@@ -446,15 +345,11 @@ h1{
   border:1px solid var(--line);
   border-radius:22px;
   padding:28px;
-  transition:.3s;
-}
-
-.card:hover{
-  border-color:rgba(109,93,252,.5);
 }
 
 .card p{
   color:var(--muted);
+  margin:0;
 }
 
 /* ABOUT */
@@ -472,8 +367,8 @@ h1{
 }
 
 .fact{
-  padding:18px;
   background:var(--surface2);
+  padding:18px;
   border-radius:16px;
 }
 
@@ -484,27 +379,31 @@ h1{
   margin-bottom:5px;
 }
 
+.fact b{
+  font-size:15px;
+}
+
 /* SKILLS */
 
 .skill-filter{
   display:flex;
-  flex-wrap:wrap;
   gap:8px;
+  flex-wrap:wrap;
   margin-bottom:22px;
 }
 
 .filter{
-  border:1px solid var(--line);
-  background:var(--surface);
-  color:var(--muted);
-  padding:8px 14px;
-  border-radius:999px;
   cursor:pointer;
-  font-weight:800;
+  background:var(--surface);
+  border:1px solid var(--line);
+  color:var(--muted);
+  padding:8px 12px;
+  border-radius:999px;
+  font-weight:700;
 }
 
-.filter:hover,
-.filter.active{
+.filter.active,
+.filter:hover{
   background:var(--text);
   color:var(--bg);
 }
@@ -516,13 +415,13 @@ h1{
 }
 
 .pill{
-  padding:10px 15px;
-  background:var(--surface);
   border:1px solid var(--line);
+  background:var(--surface);
+  padding:10px 14px;
   border-radius:999px;
   font-size:13px;
   font-weight:700;
-  transition:.25s;
+  transition:.2s;
 }
 
 .pill:hover{
@@ -534,6 +433,7 @@ h1{
 
 .timeline{
   position:relative;
+  margin-top:10px;
 }
 
 .timeline:before{
@@ -549,6 +449,7 @@ h1{
 .item{
   position:relative;
   padding-left:42px;
+  margin-bottom:28px;
 }
 
 .item:before{
@@ -560,63 +461,83 @@ h1{
   height:11px;
   border-radius:50%;
   background:var(--accent);
-  box-shadow:0 0 20px var(--accent);
+  box-shadow:
+  0 0 0 5px
+  color-mix(in srgb,var(--accent) 13%,transparent);
 }
 
 .role{
   display:flex;
   justify-content:space-between;
   gap:20px;
+  align-items:baseline;
 }
 
 .role h3{
   margin:0;
-  font-size:21px;
+  font-size:20px;
 }
 
 .company{
   color:var(--accent);
-  font-weight:800;
+  font-weight:750;
+  font-size:14px;
 }
 
 .date{
-  color:var(--muted);
   font-size:13px;
+  color:var(--muted);
+  white-space:nowrap;
 }
 
 .item ul{
   color:var(--muted);
+  margin:12px 0 0;
+  padding-left:18px;
 }
 
 .item li{
-  margin:8px 0;
+  margin:7px 0;
 }
 
 /* PROJECTS */
 
 .projects{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+  grid-template-columns:repeat(3,1fr);
   gap:18px;
 }
 
 .project{
-  min-height:245px;
-  padding:26px;
-  position:relative;
-  overflow:hidden;
-  display:flex;
-  flex-direction:column;
   background:var(--surface);
   border:1px solid var(--line);
   border-radius:22px;
-  transition:.3s;
+  padding:25px;
+  min-height:260px;
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  overflow:hidden;
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
 }
 
 .project:hover{
-  transform:translateY(-8px);
-  border-color:var(--accent);
   box-shadow:var(--shadow);
+}
+
+.project:before{
+  content:"";
+  position:absolute;
+  width:120px;
+  height:120px;
+  right:-55px;
+  top:-55px;
+  background:var(--accent);
+  border-radius:50%;
+  filter:blur(35px);
+  opacity:.09;
 }
 
 .project:after{
@@ -624,13 +545,15 @@ h1{
   position:absolute;
   right:20px;
   bottom:18px;
+  font-size:18px;
   color:var(--accent);
-  font-size:20px;
+  opacity:.6;
 }
 
 .project-top{
   display:flex;
   justify-content:space-between;
+  gap:15px;
 }
 
 .project h3{
@@ -639,8 +562,9 @@ h1{
 }
 
 .num{
-  color:var(--accent);
   font-weight:900;
+  color:var(--accent);
+  font-size:12px;
 }
 
 .project p{
@@ -649,18 +573,18 @@ h1{
 }
 
 .tech{
+  margin-top:auto;
   display:flex;
   flex-wrap:wrap;
   gap:7px;
-  margin-top:auto;
 }
 
 .tech span{
-  padding:6px 9px;
-  background:var(--surface2);
-  border-radius:8px;
-  color:var(--muted);
   font-size:11px;
+  padding:6px 9px;
+  border-radius:8px;
+  background:var(--surface2);
+  color:var(--muted);
 }
 
 /* EDUCATION */
@@ -671,13 +595,22 @@ h1{
   gap:18px;
 }
 
+.edu h3{
+  margin:0 0 5px;
+}
+
+.edu p{
+  margin:0;
+  color:var(--muted);
+}
+
 /* CONTACT */
 
 .contact{
-  padding:45px;
   background:var(--surface);
   border:1px solid var(--line);
   border-radius:28px;
+  padding:45px;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -686,58 +619,174 @@ h1{
 
 .contact h2{
   font-size:40px;
+  letter-spacing:-.05em;
+  margin:8px 0;
 }
 
 .contact p{
   color:var(--muted);
+  margin:0;
 }
 
 /* FOOTER */
 
 .footer{
   padding:30px 0 45px;
-  border-top:1px solid var(--line);
   color:var(--muted);
   font-size:13px;
   display:flex;
   justify-content:space-between;
-  gap:20px;
+  border-top:1px solid var(--line);
 }
 
-.footer-links{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
+/* BACKGROUND */
+
+.grid-bg{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.32;
+  background-image:
+    linear-gradient(var(--line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:70px 70px;
+  mask-image:linear-gradient(to bottom,black,transparent 75%);
 }
 
-.footer-links a{
-  padding:9px 13px;
-  border:1px solid var(--line);
-  border-radius:10px;
+.orb{
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+  filter:blur(1px);
+  opacity:.45;
+  animation:float 8s ease-in-out infinite;
+}
+
+.orb.one{
+  width:280px;
+  height:280px;
+  background:
+    radial-gradient(circle at 35% 35%,#7c6cff,transparent 65%);
+  right:8%;
+  top:120px;
+}
+
+.orb.two{
+  width:220px;
+  height:220px;
+  background:
+    radial-gradient(circle at 55% 45%,#19c7a2,transparent 65%);
+  left:4%;
+  top:580px;
+  animation-delay:-3s;
+}
+
+@keyframes float{
+  0%,100%{
+    transform:translate3d(0,0,0);
+  }
+  50%{
+    transform:translate3d(0,-28px,0);
+  }
+}
+
+/* SCAN LINE */
+
+.scanline{
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  height:2px;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--accent),
+      transparent
+    );
+  box-shadow:0 0 18px var(--accent);
+  animation:scan 5s linear infinite;
+  opacity:.5;
+}
+
+@keyframes scan{
+  0%{
+    transform:translateY(0);
+  }
+  100%{
+    transform:translateY(520px);
+  }
+}
+
+/* MARQUEE */
+
+.marquee{
+  overflow:hidden;
+  border-block:1px solid var(--line);
+  padding:13px 0;
+  color:var(--muted);
+  white-space:nowrap;
+}
+
+.marquee-track{
+  display:inline-flex;
+  gap:34px;
+  animation:marquee 24s linear infinite;
+  font-size:12px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.16em;
+}
+
+@keyframes marquee{
+  to{
+    transform:translateX(-50%);
+  }
+}
+
+/* METRICS */
+
+.metric-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:25px;
+}
+
+.metric{
   background:var(--surface);
-  transition:.25s;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:20px;
+  transition:.2s;
 }
 
-.footer-links a:hover{
-  color:var(--text);
-  border-color:var(--accent);
-  transform:translateY(-3px);
+.metric:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow);
 }
 
-.cv-link{
-  background:linear-gradient(
-    110deg,
-    rgba(109,93,252,.18),
-    rgba(25,199,162,.12)
-  ) !important;
+.metric small{
+  color:var(--muted);
+  display:block;
 }
 
-/* SCROLL ANIMATION */
+.metric strong{
+  display:block;
+  font-size:30px;
+  letter-spacing:-.05em;
+  margin-top:5px;
+}
+
+/* REVEAL */
 
 .reveal{
   opacity:0;
-  transform:translateY(25px);
-  transition:.8s ease;
+  transform:translateY(24px);
+  transition:
+    opacity .7s ease,
+    transform .7s ease;
 }
 
 .reveal.show{
@@ -745,23 +794,63 @@ h1{
   transform:none;
 }
 
-/* BACK TOP */
+/* CUSTOM CURSOR */
+
+.cursor{
+  position:fixed;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:100;
+  transform:translate(-50%,-50%);
+  background:var(--accent);
+  box-shadow:0 0 18px var(--accent);
+  transition:
+    transform .12s ease,
+    opacity .2s;
+  display:none;
+}
+
+.cursor:after{
+  content:"";
+  position:absolute;
+  inset:-7px;
+  border:1px solid
+    color-mix(in srgb,var(--accent) 45%,transparent);
+  border-radius:50%;
+  animation:cursorPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes cursorPulse{
+  0%,100%{
+    transform:scale(.8);
+    opacity:.35;
+  }
+  50%{
+    transform:scale(1.25);
+    opacity:.8;
+  }
+}
+
+/* BACK TO TOP */
 
 .backtop{
   position:fixed;
-  right:25px;
-  bottom:25px;
-  width:45px;
-  height:45px;
+  right:24px;
+  bottom:24px;
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  border:1px solid var(--line);
+  background:var(--surface);
+  color:var(--text);
   display:grid;
   place-items:center;
-  border-radius:50%;
-  background:var(--surface);
-  border:1px solid var(--line);
-  z-index:100;
   opacity:0;
   pointer-events:none;
-  transition:.3s;
+  transition:.25s;
+  z-index:30;
 }
 
 .backtop.visible{
@@ -769,18 +858,129 @@ h1{
   pointer-events:auto;
 }
 
-/* CURSOR */
+/* CHATBOT */
 
-.cursor{
+.chatbot{
   position:fixed;
-  width:22px;
-  height:22px;
-  border:1px solid var(--accent);
-  border-radius:50%;
-  pointer-events:none;
-  z-index:200;
-  transform:translate(-50%,-50%);
+  right:24px;
+  bottom:82px;
+  width:min(360px,calc(100vw - 32px));
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:22px;
+  box-shadow:0 24px 80px rgba(0,0,0,.28);
+  z-index:50;
+  overflow:hidden;
   display:none;
+}
+
+.chatbot.open{
+  display:block;
+  animation:chatIn .22s ease;
+}
+
+@keyframes chatIn{
+  from{
+    opacity:0;
+    transform:translateY(12px) scale(.98);
+  }
+  to{
+    opacity:1;
+    transform:none;
+  }
+}
+
+.chat-head{
+  padding:15px 17px;
+  background:
+    linear-gradient(110deg,var(--accent),#19a9ff);
+  color:white;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.chat-head strong{
+  font-size:14px;
+}
+
+.chat-close{
+  border:0;
+  background:rgba(255,255,255,.16);
+  color:white;
+  width:30px;
+  height:30px;
+  border-radius:9px;
+  cursor:pointer;
+}
+
+.chat-body{
+  padding:14px;
+  max-height:310px;
+  overflow:auto;
+}
+
+.chat-msg{
+  padding:10px 12px;
+  border-radius:14px;
+  background:var(--surface2);
+  font-size:13px;
+  margin-bottom:9px;
+  color:var(--text);
+}
+
+.chat-msg.bot{
+  border-bottom-left-radius:5px;
+}
+
+.chat-msg.user{
+  background:
+    color-mix(in srgb,var(--accent) 15%,var(--surface));
+  border-bottom-right-radius:5px;
+}
+
+.chat-options{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
+
+.chat-option{
+  border:1px solid var(--line);
+  background:var(--surface);
+  color:var(--text);
+  padding:8px 10px;
+  border-radius:10px;
+  font-size:12px;
+  cursor:pointer;
+}
+
+.chat-option:hover{
+  border-color:var(--accent);
+  color:var(--accent);
+}
+
+.chat-fab{
+  position:fixed;
+  right:24px;
+  bottom:24px;
+  width:52px;
+  height:52px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:var(--text);
+  color:var(--bg);
+  display:grid;
+  place-items:center;
+  font-size:22px;
+  cursor:pointer;
+  z-index:51;
+  box-shadow:0 12px 35px rgba(0,0,0,.2);
+  transition:.2s;
+}
+
+.chat-fab:hover{
+  transform:translateY(-3px) scale(1.04);
 }
 
 /* RESPONSIVE */
@@ -802,12 +1002,12 @@ h1{
     grid-template-columns:1fr;
   }
 
-  .metric-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
   .section-head{
     display:block;
+  }
+
+  .section-head p{
+    margin-top:14px;
   }
 
   .contact{
@@ -815,7 +1015,7 @@ h1{
   }
 
   .contact .actions{
-    margin-top:25px;
+    margin-top:22px;
   }
 
   .role{
@@ -826,6 +1026,18 @@ h1{
     display:block;
     margin-top:5px;
   }
+
+  .metric-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .orb{
+    display:none;
+  }
+
+  .marquee-track{
+    animation-duration:18s;
+  }
 }
 
 @media(max-width:480px){
@@ -834,9 +1046,12 @@ h1{
     font-size:50px;
   }
 
-  .facts,
-  .metric-grid{
+  .facts{
     grid-template-columns:1fr;
+  }
+
+  .metric strong{
+    font-size:24px;
   }
 
   .contact{
@@ -847,8 +1062,14 @@ h1{
     font-size:32px;
   }
 
-  .footer{
-    flex-direction:column;
+  .chatbot{
+    right:16px;
+    bottom:82px;
+  }
+
+  .chat-fab{
+    right:16px;
+    bottom:18px;
   }
 }
 </style>
@@ -859,20 +1080,21 @@ h1{
 <div class="app">
 
 <div class="grid-bg"></div>
-<div class="stars"></div>
+
 <div class="orb one"></div>
 <div class="orb two"></div>
+
 <div class="cursor" id="cursor"></div>
 
-<a href="#top" class="backtop" id="backtop">↑</a>
+<a class="backtop" id="backtop" href="#top">↑</a>
 
 <!-- NAVIGATION -->
 
 <header class="nav">
 
-<div class="navin">
+<div class="wrap navin">
 
-<a href="#top" class="brand">
+<a class="brand" href="#top">
 AK<span>.</span>
 </a>
 
@@ -893,7 +1115,9 @@ AK<span>.</span>
 
 <!-- HERO -->
 
-<section class="hero wrap reveal">
+<section class="hero wrap">
+
+<div class="scanline"></div>
 
 <div>
 
@@ -904,7 +1128,9 @@ Open to IT opportunities
 
 <h1>
 Hi, I'm
-<span class="gradient">Ananthakumar.</span>
+<span class="gradient">
+Ananthakumar.
+</span>
 </h1>
 
 <p>
@@ -915,18 +1141,29 @@ Hi, I'm
 
 <br>
 
-Cloud Infrastructure / Batch Operations Engineer focused on production monitoring, batch operations, scheduling and reliable IT operations.
+Cloud Infrastructure / Batch Operations professional
+with a growing interest in software development,
+building practical and reliable IT solutions.
 
 </p>
 
 <div class="actions">
 
-<a href="#experience" class="btn primary">
-Explore My Work ↓
+<a class="btn primary magnetic"
+href="#experience">
+Explore my work ↓
 </a>
 
-<a href="#contact" class="btn">
-Let's Connect
+<a class="btn magnetic"
+href="#contact">
+Let's connect
+</a>
+
+<a class="btn magnetic"
+href="YOUR_CV_FILE.pdf"
+target="_blank"
+rel="noopener">
+📄 Download CV
 </a>
 
 </div>
@@ -935,36 +1172,49 @@ Let's Connect
 <div class="terminal">
 
 <span class="green">
-ananthakumar@portfolio.
-</span>:~$ whoami
+◆ ANANTHAKUMAR
+</span>
 
 <br>
 
-<span class="purple">role</span>
-→ Engineer — Cloud Infrastructure
+<span class="purple">
+INFRASTRUCTURE
+</span>
+
+·
+
+<span class="blue">
+BATCH OPERATIONS
+</span>
+
+·
+
+<span class="green">
+PRODUCTION
+</span>
+
+<br><br>
+
+<span class="blue">▸</span>
+Monitoring workloads &amp; keeping production moving
 
 <br>
 
-<span class="purple">focus</span>
-→ Batch Ops · Monitoring · Mainframe
+<span class="blue">▸</span>
+Mainframe · JCL · Scheduling · Incident Support
 
 <br>
 
-<span class="purple">status</span>
-→ <span class="green">open_to_work = true</span>
-
-<br>
-
-<span class="blue">$</span>
-building reliable production systems
-<span class="green">_</span>
+<span class="green">
+● AVAILABLE FOR IT OPPORTUNITIES
+</span>
 
 </div>
 
 </div>
 
 
-<!-- HERO CARD -->
+<!-- HERO INFO -->
 
 <aside class="hero-card">
 
@@ -975,28 +1225,35 @@ AC
 <div style="height:18px"></div>
 
 <div class="stat">
-<b>Current Role</b>
-<span>Engineer — Cloud Infrastructure</span>
+<b>Current role</b>
+<span>
+Engineer — Cloud Infrastructure
+</span>
 </div>
 
 <div class="stat">
 <b>Experience</b>
-<span>1+ Year IT Experience</span>
+<span>
+1+ year IT experience
+</span>
 </div>
 
 <div class="stat">
 <b>Focus</b>
-<span>Infrastructure • Batch Ops • Production Support</span>
+<span>
+Infrastructure • Batch Ops • Production Support
+</span>
 </div>
 
 <div class="stat">
 <b>Location</b>
-<span>Bangalore, India</span>
+<span>
+Bangalore, India
+</span>
 </div>
 
 <div class="code-line">
-<span class="green">01</span>
-production_ready = true
+<b>01</b> · production_ready = true
 </div>
 
 </aside>
@@ -1010,20 +1267,40 @@ production_ready = true
 
 <div class="marquee-track">
 
-CLOUD INFRASTRUCTURE ✦
-BATCH OPERATIONS ✦
-PRODUCTION SUPPORT ✦
-IBM MAINFRAME ✦
-JOB SCHEDULING ✦
-INCIDENT MANAGEMENT ✦
-MONITORING ✦
-CLOUD INFRASTRUCTURE ✦
-BATCH OPERATIONS ✦
-PRODUCTION SUPPORT ✦
-IBM MAINFRAME ✦
-JOB SCHEDULING ✦
-INCIDENT MANAGEMENT ✦
-MONITORING
+CLOUD INFRASTRUCTURE
+<span>✦</span>
+
+BATCH OPERATIONS
+<span>✦</span>
+
+PRODUCTION SUPPORT
+<span>✦</span>
+
+IBM MAINFRAME
+<span>✦</span>
+
+JOB SCHEDULING
+<span>✦</span>
+
+INCIDENT MANAGEMENT
+<span>✦</span>
+
+CLOUD INFRASTRUCTURE
+<span>✦</span>
+
+BATCH OPERATIONS
+<span>✦</span>
+
+PRODUCTION SUPPORT
+<span>✦</span>
+
+IBM MAINFRAME
+<span>✦</span>
+
+JOB SCHEDULING
+<span>✦</span>
+
+INCIDENT MANAGEMENT
 
 </div>
 
@@ -1039,27 +1316,70 @@ MONITORING
 <div class="metric-grid">
 
 <div class="metric">
-<small>IT Experience</small>
-<strong>1+</strong>
-<span class="code-line">years</span>
+
+<small>
+IT Experience
+</small>
+
+<strong>
+1+
+</strong>
+
+<span class="code-line">
+years
+</span>
+
 </div>
 
-<div class="metric">
-<small>UG CGPA</small>
-<strong>8.59</strong>
-<span class="code-line">/ 10</span>
-</div>
 
 <div class="metric">
-<small>Core Domain</small>
-<strong>OPS</strong>
-<span class="code-line">production</span>
+
+<small>
+UG CGPA
+</small>
+
+<strong>
+8.59
+</strong>
+
+<span class="code-line">
+/ 10
+</span>
+
 </div>
 
+
 <div class="metric">
-<small>Availability</small>
-<strong>OPEN</strong>
-<span class="code-line">to_work = true</span>
+
+<small>
+Core Domain
+</small>
+
+<strong>
+OPS
+</strong>
+
+<span class="code-line">
+production
+</span>
+
+</div>
+
+
+<div class="metric">
+
+<small>
+Availability
+</small>
+
+<strong>
+OPEN
+</strong>
+
+<span class="code-line">
+to_work = true
+</span>
+
 </div>
 
 </div>
@@ -1078,13 +1398,21 @@ MONITORING
 <div class="section-head">
 
 <div>
-<div class="kicker">01 / About</div>
-<h2>Built for real production work.</h2>
+
+<div class="kicker">
+01 / About
+</div>
+
+<h2>
+Built for real production work.
+</h2>
+
 </div>
 
 <p>
-I work on operational reliability, monitoring workloads,
-production tasks and scheduled processing.
+I work on operational reliability:
+monitoring workloads, handling production
+tasks and keeping scheduled processing moving.
 </p>
 
 </div>
@@ -1096,12 +1424,11 @@ production tasks and scheduled processing.
 
 <p>
 
-I'm an IT professional working at LTIMindtree in a
-Cloud Infrastructure / Batch Operations role.
-
-My experience includes production monitoring,
-incident and request handling, scheduler operations,
-job execution and operational support.
+I'm an IT professional working at LTIMindtree
+in a Cloud Infrastructure / Batch Operations role.
+My day-to-day work includes production monitoring,
+incident and request handling, scheduler operations
+and controlled job execution.
 
 I'm interested in growing deeper into infrastructure,
 operations, monitoring and cloud-focused roles.
@@ -1114,23 +1441,54 @@ operations, monitoring and cloud-focused roles.
 <div class="facts">
 
 <div class="fact">
-<small>Degree</small>
-<b>B.Sc. Information Technology</b>
+
+<small>
+Degree
+</small>
+
+<b>
+B.Sc. Information Technology
+</b>
+
 </div>
 
-<div class="fact">
-<small>UG CGPA</small>
-<b>8.59</b>
-</div>
 
 <div class="fact">
-<small>Domain</small>
-<b>IT Infrastructure</b>
+
+<small>
+UG CGPA
+</small>
+
+<b>
+8.59
+</b>
+
 </div>
 
+
 <div class="fact">
-<small>Work Style</small>
-<b>Production / Operations</b>
+
+<small>
+Domain
+</small>
+
+<b>
+IT Infrastructure
+</b>
+
+</div>
+
+
+<div class="fact">
+
+<small>
+Work style
+</small>
+
+<b>
+Production / Operations
+</b>
+
 </div>
 
 </div>
@@ -1151,12 +1509,20 @@ operations, monitoring and cloud-focused roles.
 <div class="section-head">
 
 <div>
-<div class="kicker">02 / Skills</div>
-<h2>What I work with.</h2>
+
+<div class="kicker">
+02 / Skills
+</div>
+
+<h2>
+What I work with.
+</h2>
+
 </div>
 
 <p>
-Practical skills from production operations and project work.
+Practical skills from production operations
+and project work.
 </p>
 
 </div>
@@ -1181,27 +1547,85 @@ Development
 
 <div class="skills">
 
-<span class="pill" data-type="ops">IBM Mainframe</span>
-<span class="pill" data-type="ops">JCL</span>
-<span class="pill" data-type="ops">Batch Operations</span>
-<span class="pill" data-type="ops">Job Scheduling</span>
-<span class="pill" data-type="ops">Production Monitoring</span>
-<span class="pill" data-type="ops">Incident Management</span>
-<span class="pill" data-type="ops">Request Management</span>
-<span class="pill" data-type="ops">Job Rerun / Restart</span>
-<span class="pill" data-type="ops">Job Migration</span>
-<span class="pill" data-type="ops">JCL Override</span>
-<span class="pill" data-type="ops">Job Creation</span>
-<span class="pill" data-type="ops">IPL Operations</span>
-<span class="pill" data-type="ops">Purge Activities</span>
-<span class="pill" data-type="ops">Zena / Scheduler Tools</span>
+<span class="pill" data-type="ops">
+IBM Mainframe
+</span>
 
-<span class="pill" data-type="dev">FastAPI</span>
-<span class="pill" data-type="dev">Jinja</span>
-<span class="pill" data-type="dev">BigQuery</span>
-<span class="pill" data-type="dev">Bootstrap</span>
-<span class="pill" data-type="dev">Chart.js</span>
-<span class="pill" data-type="dev">Jira</span>
+<span class="pill" data-type="ops">
+JCL
+</span>
+
+<span class="pill" data-type="ops">
+Batch Operations
+</span>
+
+<span class="pill" data-type="ops">
+Job Scheduling
+</span>
+
+<span class="pill" data-type="ops">
+Production Monitoring
+</span>
+
+<span class="pill" data-type="ops">
+Incident Management
+</span>
+
+<span class="pill" data-type="ops">
+Request Management
+</span>
+
+<span class="pill" data-type="ops">
+Job Rerun / Restart
+</span>
+
+<span class="pill" data-type="ops">
+Job Migration
+</span>
+
+<span class="pill" data-type="ops">
+JCL Override
+</span>
+
+<span class="pill" data-type="ops">
+Job Creation
+</span>
+
+<span class="pill" data-type="ops">
+IPL Operations
+</span>
+
+<span class="pill" data-type="ops">
+Purge Activities
+</span>
+
+<span class="pill" data-type="ops">
+Zena / Scheduler Tools
+</span>
+
+<span class="pill" data-type="dev">
+FastAPI
+</span>
+
+<span class="pill" data-type="dev">
+Jinja
+</span>
+
+<span class="pill" data-type="dev">
+BigQuery
+</span>
+
+<span class="pill" data-type="dev">
+Bootstrap
+</span>
+
+<span class="pill" data-type="dev">
+Chart.js
+</span>
+
+<span class="pill" data-type="dev">
+Jira
+</span>
 
 </div>
 
@@ -1219,12 +1643,20 @@ Development
 <div class="section-head">
 
 <div>
-<div class="kicker">03 / Experience</div>
-<h2>Production experience.</h2>
+
+<div class="kicker">
+03 / Experience
+</div>
+
+<h2>
+Production experience.
+</h2>
+
 </div>
 
 <p>
-Current professional experience focused on IT operations.
+Current professional experience, kept factual
+and focused on responsibilities.
 </p>
 
 </div>
@@ -1276,12 +1708,11 @@ Work with JCL overrides and creation of new jobs based on operational requiremen
 </li>
 
 <li>
-Work with scheduler operations including predecessor updates,
-holds and controlled execution.
+Handle scheduler operations including predecessor updates, holds and controlled execution.
 </li>
 
 <li>
-Participate in operational activities such as IPL and purge tasks
+Participate in operational activities such as IPL and purge tasks,
 with process and access controls.
 </li>
 
@@ -1307,12 +1738,20 @@ with process and access controls.
 <div class="section-head">
 
 <div>
-<div class="kicker">04 / Projects</div>
-<h2>Things I've built.</h2>
+
+<div class="kicker">
+04 / Projects
+</div>
+
+<h2>
+Projects.
+</h2>
+
 </div>
 
 <p>
-Selected development and automation work.
+Selected projects showcasing dashboard development,
+workflow management and practical web development.
 </p>
 
 </div>
@@ -1320,6 +1759,8 @@ Selected development and automation work.
 
 <div class="projects">
 
+
+<!-- PROJECT 1 -->
 
 <article class="project">
 
@@ -1337,8 +1778,9 @@ CAP50 Dashboard
 
 <p>
 
-Interactive dashboard for project-level reporting and visibility,
-with filtering, summary cards, charts and pagination.
+Interactive dashboard for project-level reporting
+and visibility, with filtering, summary cards,
+charts and pagination.
 
 </p>
 
@@ -1354,6 +1796,8 @@ with filtering, summary cards, charts and pagination.
 
 </article>
 
+
+<!-- PROJECT 2 -->
 
 <article class="project">
 
@@ -1371,8 +1815,9 @@ Change Management System
 
 <p>
 
-Worked on a change-management workflow during internship
-experience involving Jira and SSD ticketing processes.
+Worked on a change-management workflow during
+internship experience, involving Jira and
+SSD ticketing processes.
 
 </p>
 
@@ -1386,6 +1831,41 @@ experience involving Jira and SSD ticketing processes.
 
 </article>
 
+
+<!-- PROJECT 3 -->
+
+<article class="project">
+
+<div class="project-top">
+
+<h3>
+On-Road Vehicle Breakdown Website
+</h3>
+
+<span class="num">
+03
+</span>
+
+</div>
+
+<p>
+
+Web project designed to help users handle
+on-road vehicle breakdown situations by presenting
+a practical breakdown-support experience.
+
+</p>
+
+<div class="tech">
+
+<span>Web Development</span>
+<span>HTML</span>
+<span>CSS</span>
+<span>JavaScript</span>
+
+</div>
+
+</article>
 
 </div>
 
@@ -1403,14 +1883,22 @@ experience involving Jira and SSD ticketing processes.
 <div class="section-head">
 
 <div>
-<div class="kicker">05 / Education</div>
-<h2>Education.</h2>
+
+<div class="kicker">
+05 / Education
+</div>
+
+<h2>
+Education.
+</h2>
+
 </div>
 
 </div>
 
 
 <div class="edu">
+
 
 <div class="card">
 
@@ -1422,8 +1910,10 @@ B.Sc. Information Technology
 Karpagam Academy of Higher Education
 </p>
 
-<p>
+<p style="margin-top:8px">
+
 CGPA: 8.59 · First Class with Distinction
+
 </p>
 
 </div>
@@ -1432,13 +1922,16 @@ CGPA: 8.59 · First Class with Distinction
 <div class="card">
 
 <h3>
-Academic Foundation
+Academic foundation
 </h3>
 
 <p>
 
-Strong interest in networking, infrastructure,
-IT operations and Microsoft technologies.
+Strong interest in networking,
+infrastructure and Microsoft technology.
+
+Additional qualifications can be added here
+once officially confirmed.
 
 </p>
 
@@ -1453,7 +1946,7 @@ IT operations and Microsoft technologies.
 
 <!-- CONTACT -->
 
-<section id="contact" class="reveal">
+<section id="contact">
 
 <div class="wrap">
 
@@ -1462,7 +1955,7 @@ IT operations and Microsoft technologies.
 <div>
 
 <div class="kicker">
-06 / Contact
+Contact
 </div>
 
 <h2>
@@ -1476,13 +1969,38 @@ operations, monitoring and support opportunities.
 
 </p>
 
+
+<div class="actions">
+
+<!-- CHANGE THESE THREE -->
+
+<a class="btn"
+href="mailto:your.email@example.com">
+✉️ Email
+</a>
+
+<a class="btn"
+href="https://www.linkedin.com/"
+target="_blank"
+rel="noopener">
+💼 LinkedIn
+</a>
+
+<a class="btn"
+href="tel:+91XXXXXXXXXX">
+📱 Phone
+</a>
+
+</div>
+
 </div>
 
 
 <div class="actions">
 
-<a class="btn primary" href="#top">
-Back to Top ↑
+<a class="btn primary"
+href="#top">
+Back to top ↑
 </a>
 
 </div>
@@ -1496,6 +2014,82 @@ Back to Top ↑
 </main>
 
 
+<!-- CHATBOT -->
+
+<div class="chatbot"
+id="chatbot"
+aria-live="polite">
+
+<div class="chat-head">
+
+<strong>
+💬 Ananthakumar Assistant
+</strong>
+
+<button
+class="chat-close"
+id="chatClose"
+aria-label="Close chat">
+×
+</button>
+
+</div>
+
+
+<div class="chat-body" id="chatBody">
+
+<div class="chat-msg bot">
+
+Hi! 👋 I'm the portfolio assistant.
+
+Ask me about Ananthakumar's experience,
+skills, projects, education or the kind
+of roles he's interested in.
+
+</div>
+
+
+<div class="chat-options">
+
+<button class="chat-option" data-q="experience">
+Experience
+</button>
+
+<button class="chat-option" data-q="skills">
+Skills
+</button>
+
+<button class="chat-option" data-q="projects">
+Projects
+</button>
+
+<button class="chat-option" data-q="education">
+Education
+</button>
+
+<button class="chat-option" data-q="roles">
+Roles
+</button>
+
+<button class="chat-option" data-q="contact">
+Contact
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<button
+class="chat-fab"
+id="chatFab"
+aria-label="Open portfolio assistant">
+💬
+</button>
+
+
 <!-- FOOTER -->
 
 <footer class="wrap footer">
@@ -1503,34 +2097,6 @@ Back to Top ↑
 <span>
 © 2026 Ananthakumar C
 </span>
-
-
-<div class="footer-links">
-
-<a
-href="https://www.linkedin.com/"
-target="_blank"
-rel="noopener">
-💼 LinkedIn
-</a>
-
-<a href="tel:+91XXXXXXXXXX">
-📱 Phone
-</a>
-
-<a href="mailto:your.email@example.com">
-✉️ Email
-</a>
-
-<a
-class="cv-link"
-href="YOUR_CV_FILE.pdf"
-target="_blank"
-rel="noopener">
-📄 Download CV
-</a>
-
-</div>
 
 </footer>
 
@@ -1541,38 +2107,77 @@ rel="noopener">
 
 /* CUSTOM CURSOR */
 
-const cursor = document.getElementById("cursor");
+const cursor =
+document.getElementById("cursor");
 
-window.addEventListener("mousemove", function(e){
+window.addEventListener("mousemove", e => {
 
   cursor.style.display = "block";
 
-  cursor.style.left = e.clientX + "px";
-  cursor.style.top = e.clientY + "px";
+  cursor.style.left =
+    e.clientX + "px";
+
+  cursor.style.top =
+    e.clientY + "px";
+
+});
+
+
+/* MAGNETIC BUTTONS */
+
+document
+.querySelectorAll(".magnetic")
+.forEach(el => {
+
+  el.addEventListener("mousemove", e => {
+
+    const r =
+      el.getBoundingClientRect();
+
+    const x =
+      (e.clientX - r.left - r.width / 2) * .12;
+
+    const y =
+      (e.clientY - r.top - r.height / 2) * .12;
+
+    el.style.transform =
+      `translate(${x}px,${y}px)`;
+
+  });
+
+
+  el.addEventListener("mouseleave", () => {
+
+    el.style.transform = "";
+
+  });
 
 });
 
 
 /* SCROLL REVEAL */
 
-const observer = new IntersectionObserver(
+const observer =
+new IntersectionObserver(
 
-(entries) => {
+entries => {
 
-entries.forEach(entry => {
+  entries.forEach(entry => {
 
-if(entry.isIntersecting){
+    if(entry.isIntersecting){
 
-entry.target.classList.add("show");
+      entry.target
+      .classList
+      .add("show");
 
-}
+    }
 
-});
+  });
 
 },
 
 {
-threshold:.12
+  threshold:.12
 }
 
 );
@@ -1580,105 +2185,65 @@ threshold:.12
 
 document
 .querySelectorAll(".reveal")
-.forEach(element => observer.observe(element));
+.forEach(x => observer.observe(x));
 
 
 /* SKILL FILTER */
 
-const filters =
-document.querySelectorAll(".filter");
+document
+.querySelectorAll(".filter")
+.forEach(btn => {
 
-const pills =
-document.querySelectorAll(".pill");
+  btn.addEventListener("click", () => {
 
+    document
+    .querySelectorAll(".filter")
+    .forEach(b =>
+      b.classList.remove("active")
+    );
 
-filters.forEach(button => {
+    btn.classList.add("active");
 
-button.addEventListener("click", () => {
+    const filter =
+      btn.dataset.filter;
 
-filters.forEach(btn =>
-btn.classList.remove("active")
-);
+    document
+    .querySelectorAll(".pill")
+    .forEach(pill => {
 
-button.classList.add("active");
+      if(
+        filter === "all" ||
+        pill.dataset.type === filter
+      ){
 
-const filter =
-button.dataset.filter;
+        pill.style.display =
+          "inline-block";
 
-pills.forEach(pill => {
+      }else{
 
-if(
-filter === "all" ||
-pill.dataset.type === filter
-){
+        pill.style.display =
+          "none";
 
-pill.style.display = "inline-block";
+      }
 
-}else{
+    });
 
-pill.style.display = "none";
-
-}
-
-});
-
-});
+  });
 
 });
 
 
 /* BACK TO TOP */
 
-const backtop =
+const back =
 document.getElementById("backtop");
 
 window.addEventListener("scroll", () => {
 
-if(window.scrollY > 600){
-
-backtop.classList.add("visible");
-
-}else{
-
-backtop.classList.remove("visible");
-
-}
-
-});
-
-
-/* MAGNETIC BUTTON EFFECT */
-
-document
-.querySelectorAll(".btn")
-.forEach(button => {
-
-button.addEventListener("mousemove", e => {
-
-const rect =
-button.getBoundingClientRect();
-
-const x =
-e.clientX -
-rect.left -
-rect.width / 2;
-
-const y =
-e.clientY -
-rect.top -
-rect.height / 2;
-
-button.style.transform =
-`translate(${x * .12}px,${y * .12}px)`;
-
-});
-
-
-button.addEventListener("mouseleave", () => {
-
-button.style.transform = "";
-
-});
+  back.classList.toggle(
+    "visible",
+    scrollY > 600
+  );
 
 });
 
@@ -1689,61 +2254,116 @@ document
 .querySelectorAll(".project")
 .forEach(card => {
 
-card.addEventListener("mousemove", e => {
+  card.addEventListener("mousemove", e => {
 
-const rect =
-card.getBoundingClientRect();
+    const r =
+      card.getBoundingClientRect();
 
-const x =
-e.clientX -
-rect.left -
-rect.width / 2;
+    const rotateX =
+      -(e.clientY - r.top - r.height / 2) / 30;
 
-const y =
-e.clientY -
-rect.top -
-rect.height / 2;
+    const rotateY =
+      (e.clientX - r.left - r.width / 2) / 30;
 
-card.style.transform =
-`perspective(700px)
-rotateX(${-y / 30}deg)
-rotateY(${x / 30}deg)
-translateY(-6px)`;
+    card.style.transform =
+      `perspective(700px)
+       rotateX(${rotateX}deg)
+       rotateY(${rotateY}deg)
+       translateY(-6px)`;
 
-});
+  });
 
 
-card.addEventListener("mouseleave", () => {
+  card.addEventListener("mouseleave", () => {
 
-card.style.transform = "";
+    card.style.transform = "";
 
-});
+  });
 
 });
 
 
-/* SMOOTH NAVIGATION */
+/* CHATBOT */
+
+const chat =
+document.getElementById("chatbot");
+
+const fab =
+document.getElementById("chatFab");
+
+const closeChat =
+document.getElementById("chatClose");
+
+const chatBody =
+document.getElementById("chatBody");
+
+
+fab.addEventListener("click", () => {
+
+  chat.classList.add("open");
+
+});
+
+
+closeChat.addEventListener("click", () => {
+
+  chat.classList.remove("open");
+
+});
+
+
+const answers = {
+
+experience:
+"He currently works at LTIMindtree as an Engineer — Cloud Infrastructure on the Country Financial project, supporting L1.5 Batch Operations and production workloads.",
+
+skills:
+"His skills include IBM Mainframe, JCL, batch operations, job scheduling, production monitoring, incident/request management, job rerun/restart, job migration, JCL overrides, FastAPI, Jinja, BigQuery, Bootstrap and Chart.js.",
+
+projects:
+"His projects include the CAP50 Dashboard using FastAPI, Jinja, BigQuery, Bootstrap and Chart.js; a Change Management System involving Jira and SSD ticketing; and an On-Road Vehicle Breakdown Website focused on a practical web experience for vehicle breakdown support.",
+
+education:
+"He holds a B.Sc. in Information Technology from Karpagam Academy of Higher Education with a CGPA of 8.59 and First Class with Distinction.",
+
+roles:
+"He is interested in IT infrastructure, batch operations, production support, monitoring, incident/request management and software development opportunities.",
+
+contact:
+"Use the Contact section to reach him by email, LinkedIn or phone."
+
+};
+
 
 document
-.querySelectorAll('a[href^="#"]')
-.forEach(link => {
+.querySelectorAll(".chat-option")
+.forEach(btn => {
 
-link.addEventListener("click", function(e){
+  btn.addEventListener("click", () => {
 
-const target =
-document.querySelector(this.getAttribute("href"));
+    const q =
+      btn.dataset.q;
 
-if(target){
+    chatBody.insertAdjacentHTML(
 
-e.preventDefault();
+      "beforeend",
 
-target.scrollIntoView({
-behavior:"smooth"
-});
+      `
+      <div class="chat-msg user">
+        ${btn.textContent}
+      </div>
 
-}
+      <div class="chat-msg bot">
+        ${answers[q]}
+      </div>
+      `
 
-});
+    );
+
+    chatBody.scrollTop =
+      chatBody.scrollHeight;
+
+  });
 
 });
 
